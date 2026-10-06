@@ -1,0 +1,7 @@
+# Bases de datos y secretos en cualquier subcarpeta
+**/basedatos/
+**/instance/
+
+# Caché de Python
+**/__pycache__/
+**/*.pyc

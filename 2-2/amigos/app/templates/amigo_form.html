@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Formulario Amigo</title>
+  </head>
+  <body>
+    <h1>{% if amigo %}Editar{% else %}Nuevo{% endif %} Amigo</h1>
+    
+    <form action="/save_amigo" method="POST">
+      <!-- Campo oculto con el ID (necesario para saber si actualizamos o creamos) -->
+      <input type="hidden" name="id" value="{{ amigo.id if amigo else '' }}">
+      
+      <label>Nombre:</label>
+      <input type="text" name="name" value="{{ amigo.name if amigo else '' }}" required><br><br>
+      
+      <label>Latitud:</label>
+      <input type="text" name="lati" value="{{ amigo.lati if amigo else '' }}"><br><br>
+      
+      <label>Longitud:</label>
+      <input type="text" name="longi" value="{{ amigo.longi if amigo else '' }}"><br><br>
+      
+      <input type="submit" value="Enviar">
+    </form>
+    
+    <a href="/amigos">Cancelar</a>
+  </body>
+</html>

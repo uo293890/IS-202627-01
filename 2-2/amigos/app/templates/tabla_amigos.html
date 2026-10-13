@@ -3,30 +3,32 @@
     <meta charset="utf-8">
     <title>Amigos</title>
     <style>
-      table {
-        border-collapse: collapse;
-      }
-      table, th, td {
-        border: 1px solid black;
-        padding: 5pt;
-      }
+      table { border-collapse: collapse; }
+      table, th, td { border: 1px solid black; padding: 5pt; }
     </style>
   </head>
   <body>
-  <h1>Amigos</h1>
+    <h1>Amigos</h1>
     <table>
       <tr>
         <th>Nombre</th>
         <th>Latitud</th>
         <th>Longitud</th>
+        <th>Acciones</th>
       </tr>
       {% for amigo in amigos %}
       <tr>
         <td>{{amigo.name}}</td>
         <td>{{amigo.lati}}</td>
         <td>{{amigo.longi}}</td>
+        <td>
+          <a href="/edit_amigo/{{amigo.id}}"><button>Modificar</button></a>
+          <a href="/delete_amigo/{{amigo.id}}"><button>Borrar</button></a>
+        </td>
       </tr>
       {% endfor %}
     </table>
+    <br>
+    <a href="/new_amigo"><button>Añadir amigo</button></a>
   </body>
 </html>

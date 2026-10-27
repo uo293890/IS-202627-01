@@ -10,25 +10,20 @@
   <body>
     <h1>Amigos</h1>
     <table>
-      <tr>
-        <th>Nombre</th>
-        <th>Latitud</th>
-        <th>Longitud</th>
-        <th>Acciones</th>
-      </tr>
+      <tr><th>Nombre</th><th>Latitud</th><th>Longitud</th><th>Acciones</th></tr>
       {% for amigo in amigos %}
       <tr>
         <td>{{amigo.name}}</td>
         <td>{{amigo.lati}}</td>
         <td>{{amigo.longi}}</td>
         <td>
-          <a href="/edit_amigo/{{amigo.id}}"><button>Modificar</button></a>
-          <a href="/delete_amigo/{{amigo.id}}"><button>Borrar</button></a>
+          <a href="/html/edit_amigo/{{amigo.id}}">Modificar</a> | 
+          <a href="/html/delete_amigo/{{amigo.id}}">Borrar</a>
         </td>
       </tr>
       {% endfor %}
     </table>
     <br>
-    <a href="/new_amigo"><button>Añadir amigo</button></a>
+    <a href="/html/new_amigo">Añadir amigo</a>
   </body>
 </html>

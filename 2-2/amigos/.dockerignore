@@ -1,0 +1,4 @@
+cat <<EOF > .dockerignore
+basedatos/
+.git
+EOF

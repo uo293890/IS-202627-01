@@ -1,2 +1,5 @@
 from app import create_app
-app = create_app("development")
+import os
+
+modo = os.getenv("DEPLOYMENT_MODE", "production")
+app = create_app(modo)

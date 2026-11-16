@@ -1,0 +1,21 @@
+INGENIERIA DE SERVICIOS | Practica 1.4 | Docker Puerto publicado 9090
+
+CORRECTO: el nombre del contenedor esta disponible
+$ docker run -d --rm --name is14_oche --network pruebas -p 9090:9999 -v /home/uo293890/repositorio_practicas/1-4:/app:ro python:3.7 python -u /app/tcp_servidor5_oche_readline.py
+9a3798fff53dea7a31daf96f370c2f9ce69b4ab3e2ba593c03b60d0ea33eb2e8
+$ docker ps --filter name=is14_oche --format '{{.Names}} | {{.Ports}}'
+is14_oche | 0.0.0.0:9090->9999/tcp, [::]:9090->9999/tcp
+$ /usr/bin/python3 -u tcp_cliente5_oche_readline.py localhost 9090
+Respuesta recibida: 'ONU\r\n'
+Respuesta recibida: 'SOD\r\n'
+Respuesta recibida: 'SERT\r\n'
+Esperando la ejecucion real del cliente desde Windows...
+Cliente real Windows -> Ubuntu 10.38.10.40:9090 -> Docker:9999
+Respuesta recibida: 'ONU\r\n'
+Respuesta recibida: 'SOD\r\n'
+Respuesta recibida: 'SERT\r\n'
+Codigo de salida: 0
+
+CORRECTO: Windows accede al servicio publicado en Ubuntu:9090
+
+BLOQUE VERIFICADO: 11_puerto_publicado

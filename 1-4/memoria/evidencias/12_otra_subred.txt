@@ -1,0 +1,18 @@
+INGENIERIA DE SERVICIOS | Practica 1.4 | Docker Cliente desde otra subred
+
+CORRECTO: la red temporal no existia
+$ docker network create is14_externa_verificacion
+13f6b030b66f531d5bf99f4fae188264fadbf9474ea9c901de981fc3f19a3b64
+$ docker run --rm --network is14_externa_verificacion python:3.7 python -c 'import socket; print('"'"'IP del cliente en otra red:'"'"',socket.gethostbyname(socket.gethostname()))'
+IP del cliente en otra red: 172.20.0.2
+$ hostname -I
+$ docker run --rm --network is14_externa_verificacion -v /home/uo293890/repositorio_practicas/1-4:/app:ro python:3.7 python /app/tcp_cliente5_oche_readline.py 10.38.10.40 9090
+Respuesta recibida: 'ONU\r\n'
+Respuesta recibida: 'SOD\r\n'
+Respuesta recibida: 'SERT\r\n'
+Se prueba otra subred Docker en la misma VM; Windows aporta la prueba entre equipos.
+$ docker stop -t 1 is14_oche
+is14_oche
+CORRECTO: --rm elimina el contenedor tras detenerlo
+
+BLOQUE VERIFICADO: 12_otra_subred

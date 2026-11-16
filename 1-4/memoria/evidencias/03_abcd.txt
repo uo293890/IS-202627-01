@@ -1,0 +1,29 @@
+INGENIERIA DE SERVICIOS | Practica 1.4 | Experimento ABCD y alineacion
+
+Servidor: tcp_servidor1_simple.py puerto 20104 retardo tras accept: 1 s
+CORRECTO: el servidor arranca
+Cinco mensajes ABCD: 20 bytes antes de FINAL.
+sendall: b'ABCDABCDABCDABCDABCDFINAL'
+Salida del servidor:
+Esperando un cliente
+Nuevo cliente: ('127.0.0.1', 53084)
+Recibido: 'ABCDA'
+Recibido: 'BCDAB'
+Recibido: 'CDABC'
+Recibido: 'DABCD'
+Recibido mensaje de finalizacion
+Esperando un cliente
+Servidor: tcp_servidor2_recvall.py puerto 20105 retardo tras accept: 1 s
+CORRECTO: el servidor arranca
+Tres mensajes ABCD: 12 bytes antes de FINAL.
+sendall: b'ABCDABCDABCDFINAL'
+CORRECTO: la marca FINAL queda partida y no se reconoce
+Salida del servidor:
+Esperando un cliente...
+Cliente conectado desde ('127.0.0.1', 51252)
+Recibido: ABCDA
+Recibido: BCDAB
+Recibido: CDFIN
+Esperando un cliente...
+
+BLOQUE VERIFICADO: 03_abcd

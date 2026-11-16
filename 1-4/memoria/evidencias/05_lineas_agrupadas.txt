@@ -1,0 +1,13 @@
+INGENIERIA DE SERVICIOS | Practica 1.4 | Experimento Tres lineas juntas
+
+Servidor: tcp_servidor3_oche_simplista.py puerto 20107 retardo tras accept: 1 s
+CORRECTO: el servidor arranca
+$ /usr/bin/python3 -u tcp_cliente3_oche_envia_seguido.py 127.0.0.1 20107
+recv 1 : b'SERT\n\rSOD\n\rONU\r\n'
+Timeout: contar llamadas a recv no delimita las respuestas.
+CORRECTO: un solo recv agrupa las tres lineas y el siguiente agota el plazo
+Salida del servidor:
+recv(80): b'UNO\r\nDOS\r\nTRES\r\n'
+Respuesta: b'SERT\n\rSOD\n\rONU\r\n'
+
+BLOQUE VERIFICADO: 05_lineas_agrupadas

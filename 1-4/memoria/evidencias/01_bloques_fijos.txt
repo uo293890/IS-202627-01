@@ -1,0 +1,24 @@
+INGENIERIA DE SERVICIOS | Practica 1.4 | Ejercicio 1 Bloques de cinco bytes
+
+Servidor: tcp_servidor1_simple.py puerto 20101 retardo tras accept: 0 s
+CORRECTO: el servidor arranca
+$ /usr/bin/python3 -u tcp_cliente1_simple.py 127.0.0.1 20101
+send ABCDE: 5 bytes
+send ABCDE: 5 bytes
+send ABCDE: 5 bytes
+send ABCDE: 5 bytes
+send ABCDE: 5 bytes
+send FINAL: 5 bytes
+CORRECTO: llegan cinco bloques ABCDE y se reconoce FINAL
+Salida del servidor:
+Esperando un cliente
+Nuevo cliente: ('127.0.0.1', 42666)
+Recibido: 'ABCDE'
+Recibido: 'ABCDE'
+Recibido: 'ABCDE'
+Recibido: 'ABCDE'
+Recibido: 'ABCDE'
+Recibido mensaje de finalizacion
+Esperando un cliente
+
+BLOQUE VERIFICADO: 01_bloques_fijos

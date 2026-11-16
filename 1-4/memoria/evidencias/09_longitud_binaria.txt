@@ -1,0 +1,17 @@
+INGENIERIA DE SERVICIOS | Practica 1.4 | Ejercicio 7 Longitud binaria
+
+struct.pack('>H', 15) = b'\x00\x0f'
+struct.pack('<H', 15) = b'\x0f\x00'
+struct.unpack('>H', b'\x00\x10') = (16,)
+Servidor: tcp_servidor7_opcional.py puerto 20111 retardo tras accept: 0 s
+CORRECTO: el servidor arranca
+$ /usr/bin/python3 -u tcp_cliente7_opcional.py 127.0.0.1 20111
+Mensaje para el servidor OCHE: Respuesta del servidor: anañam
+CORRECTO: el cliente y servidor existentes invierten UTF-8 correctamente
+Fragmento enviado: b'\x00'
+Fragmento enviado: b'\x07ma\xc3'
+Fragmento enviado: b'\xb1ana'
+CORRECTO: recvall tolera cabecera binaria y UTF-8 fragmentados
+CORRECTO: >H admite longitudes de 0 a 65535, no 65536.
+
+BLOQUE VERIFICADO: 09_longitud_binaria

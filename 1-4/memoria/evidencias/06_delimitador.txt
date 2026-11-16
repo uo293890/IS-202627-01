@@ -1,0 +1,20 @@
+INGENIERIA DE SERVICIOS | Practica 1.4 | Ejercicio 4 Lectura byte a byte
+
+Servidor: tcp_servidor4_oche_mejorado.py puerto 20108 retardo tras accept: 1 s
+CORRECTO: el servidor arranca
+$ /usr/bin/python3 -u tcp_cliente4_oche_mejorado.py 127.0.0.1 20108
+Respuesta recibida: 'ONU\r\n'
+Respuesta recibida: 'SOD\r\n'
+Respuesta recibida: 'SERT\r\n'
+CORRECTO: respuesta correcta: 6 caracteres, 7 bytes
+CORRECTO: respuesta correcta: 160 caracteres, 160 bytes
+CORRECTO: respuesta correcta: 0 caracteres, 0 bytes
+Salida del servidor:
+Linea completa: 'UNO'
+Linea completa: 'DOS'
+Linea completa: 'TRES'
+Linea completa: 'mañana'
+Linea completa: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+Linea completa: ''
+
+BLOQUE VERIFICADO: 06_delimitador

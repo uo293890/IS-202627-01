@@ -1,0 +1,14 @@
+INGENIERIA DE SERVICIOS | Practica 1.4 | Docker Red privada y nombre DNS
+
+CORRECTO: el nombre del contenedor esta disponible
+$ docker run -d --rm --name is14_oche --network pruebas -v /home/uo293890/repositorio_practicas/1-4:/app:ro python:3.7 python -u /app/tcp_servidor5_oche_readline.py
+aa56d5b0dd3bfc56aebd71156c01f8ecc7bb82a07cfb47c90bc22ad1072af79b
+$ docker run --rm --network pruebas -v /home/uo293890/repositorio_practicas/1-4:/app:ro python:3.7 python /app/tcp_cliente5_oche_readline.py is14_oche 9999
+Respuesta recibida: 'ONU\r\n'
+Respuesta recibida: 'SOD\r\n'
+Respuesta recibida: 'SERT\r\n'
+$ docker stop -t 1 is14_oche
+is14_oche
+CORRECTO: --rm elimina el contenedor tras detenerlo
+
+BLOQUE VERIFICADO: 10_docker_interno

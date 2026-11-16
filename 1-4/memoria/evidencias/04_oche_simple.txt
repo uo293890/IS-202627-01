@@ -1,0 +1,18 @@
+INGENIERIA DE SERVICIOS | Practica 1.4 | Ejercicio 3 OCHE simplista
+
+Servidor: tcp_servidor3_oche_simplista.py puerto 20106 retardo tras accept: 0 s
+CORRECTO: el servidor arranca
+$ /usr/bin/python3 -u tcp_cliente3_oche.py 127.0.0.1 20106
+Enviado: 'UNO' Respuesta: b'ONU\r\n'
+Enviado: 'DOS' Respuesta: b'SOD\r\n'
+Enviado: 'TRES' Respuesta: b'SERT\r\n'
+CORRECTO: la version simplista funciona con envios y respuestas intercalados
+Salida del servidor:
+recv(80): b'UNO\r\n'
+Respuesta: b'ONU\r\n'
+recv(80): b'DOS\r\n'
+Respuesta: b'SOD\r\n'
+recv(80): b'TRES\r\n'
+Respuesta: b'SERT\r\n'
+
+BLOQUE VERIFICADO: 04_oche_simple

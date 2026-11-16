@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-11-16T15:15:54.274600+00:00",
+  "bloques": {
+    "00_entorno": "correcto",
+    "01_bloques_fijos": "correcto",
+    "02_recvall": "correcto",
+    "03_abcd": "correcto",
+    "04_oche_simple": "correcto",
+    "05_lineas_agrupadas": "correcto",
+    "06_delimitador": "correcto",
+    "07_readline": "correcto",
+    "08_longitud_ascii": "correcto",
+    "09_longitud_binaria": "correcto",
+    "10_docker_interno": "correcto",
+    "11_puerto_publicado": "correcto",
+    "12_otra_subred": "correcto"
+  }
+}

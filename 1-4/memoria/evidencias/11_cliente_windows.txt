@@ -1,0 +1,5 @@
+Cliente real Windows -> Ubuntu 10.38.10.40:9090 -> Docker:9999
+Respuesta recibida: 'ONU\r\n'
+Respuesta recibida: 'SOD\r\n'
+Respuesta recibida: 'SERT\r\n'
+Codigo de salida: 0

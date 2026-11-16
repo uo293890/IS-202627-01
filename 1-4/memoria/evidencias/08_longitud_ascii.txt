@@ -1,0 +1,26 @@
+INGENIERIA DE SERVICIOS | Practica 1.4 | Ejercicio 6 Longitud ASCII
+
+Servidor: tcp_servidor6_oche_len.py puerto 20110 retardo tras accept: 0 s
+CORRECTO: el servidor arranca
+$ /usr/bin/python3 -u tcp_cliente6_oche_len.py 127.0.0.1 20110
+Enviado: 'UNO' Respuesta: 'ONU'
+Enviado: 'DOS' Respuesta: 'SOD'
+Enviado: 'TRES' Respuesta: 'SERT'
+Enviado: 'mañana' Respuesta: 'anañam'
+Enviado: 'uno\r\ndos' Respuesta: 'sod\n\ronu'
+Enviado: '' Respuesta: ''
+CORRECTO: se aceptan UTF-8, saltos de linea internos y mensaje vacio
+Fragmento enviado: b'7'
+Fragmento enviado: b'\nma\xc3'
+Fragmento enviado: b'\xb1ana'
+CORRECTO: se reconstruyen cabecera y cuerpo fragmentados
+Salida del servidor:
+Mensaje: 'UNO' bytes: 3
+Mensaje: 'DOS' bytes: 3
+Mensaje: 'TRES' bytes: 4
+Mensaje: 'mañana' bytes: 7
+Mensaje: 'uno\r\ndos' bytes: 8
+Mensaje: '' bytes: 0
+Mensaje: 'mañana' bytes: 7
+
+BLOQUE VERIFICADO: 08_longitud_ascii

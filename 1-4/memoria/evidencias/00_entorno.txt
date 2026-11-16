@@ -1,0 +1,12 @@
+INGENIERIA DE SERVICIOS | Practica 1.4 | Entorno
+
+$ date --iso-8601=seconds
+2026-11-16T15:12:06+00:00
+Equipo: is-99 Python: 3.12.3
+$ docker version --format 'Cliente {{.Client.Version}} Servidor {{.Server.Version}}'
+Cliente 29.8.0 Servidor 29.8.0
+$ docker network inspect pruebas --format '{{range .IPAM.Config}}{{.Subnet}}{{end}}'
+172.18.0.0/16
+Se conservan los seis programas existentes de los ejercicios 2, 5 y 7.
+
+BLOQUE VERIFICADO: 00_entorno

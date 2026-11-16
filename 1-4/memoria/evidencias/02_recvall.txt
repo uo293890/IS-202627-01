@@ -1,0 +1,41 @@
+INGENIERIA DE SERVICIOS | Practica 1.4 | Ejercicio 2 Fragmentacion del flujo
+
+Servidor: tcp_servidor1_simple.py puerto 20102 retardo tras accept: 0 s
+CORRECTO: el servidor arranca
+sendall: b'A'
+sendall: b'BC'
+sendall: b'DE'
+sendall: b'FINAL'
+Salida del servidor:
+Esperando un cliente
+Nuevo cliente: ('127.0.0.1', 52852)
+Recibido: 'A'
+Recibido: 'BC'
+Recibido: 'DE'
+Recibido mensaje de finalizacion
+Esperando un cliente
+Servidor: tcp_servidor2_recvall.py puerto 20103 retardo tras accept: 0 s
+CORRECTO: el servidor arranca
+sendall: b'A'
+sendall: b'BC'
+sendall: b'DE'
+sendall: b'FINAL'
+CORRECTO: recvall reconstruye ABCDE a partir de tres envios
+$ /usr/bin/python3 -u tcp_cliente2_sendall.py 127.0.0.1 20103
+
+Salida del servidor:
+Esperando un cliente...
+Cliente conectado desde ('127.0.0.1', 51988)
+Recibido: ABCDE
+Recibido FINAL. Cerrando cliente.
+Esperando un cliente...
+Cliente conectado desde ('127.0.0.1', 51996)
+Recibido: ABCDE
+Recibido: ABCDE
+Recibido: ABCDE
+Recibido: ABCDE
+Recibido: ABCDE
+Recibido FINAL. Cerrando cliente.
+Esperando un cliente...
+
+BLOQUE VERIFICADO: 02_recvall

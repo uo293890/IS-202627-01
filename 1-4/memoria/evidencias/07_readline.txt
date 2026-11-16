@@ -1,0 +1,13 @@
+INGENIERIA DE SERVICIOS | Practica 1.4 | Ejercicio 5 Readline
+
+Servidor: tcp_servidor5_oche_readline.py puerto 20109 retardo tras accept: 1 s
+CORRECTO: el servidor arranca
+$ /usr/bin/python3 -u tcp_cliente5_oche_readline.py 127.0.0.1 20109
+Respuesta recibida: 'ONU\r\n'
+Respuesta recibida: 'SOD\r\n'
+Respuesta recibida: 'SERT\r\n'
+CORRECTO: respuesta correcta: 6 caracteres, 7 bytes
+CORRECTO: respuesta correcta: 160 caracteres, 160 bytes
+CORRECTO: respuesta correcta: 0 caracteres, 0 bytes
+
+BLOQUE VERIFICADO: 07_readline

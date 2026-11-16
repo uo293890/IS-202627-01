@@ -1,0 +1,30 @@
+INGENIERIA DE SERVICIOS | Practica 1.3 | Ejercicio 7 Tres servidores
+Usuario: uo293890 | Equipo: is-99
+
+CORRECTO: server_hola_1 no existia antes de la prueba
+CORRECTO: server_hola_2 no existia antes de la prueba
+CORRECTO: server_hola_3 no existia antes de la prueba
+$ bash udp_docker_lanzar_servidores.sh
+Servidor disponible: server_hola_1
+Servidor disponible: server_hola_2
+Servidor disponible: server_hola_3
+server_hola_3 | Up Less than a second
+server_hola_2 | Up 1 second
+server_hola_1 | Up 2 seconds
+$ docker inspect server_hola_1 --format '{{range .NetworkSettings.Networks}}IP={{.IPAddress}} prefijo={{.IPPrefixLen}}{{end}}'
+IP=172.18.0.3 prefijo=16
+$ bash udp_docker_lanzar_cliente.sh
+Subred: 172.18.0.0/16; broadcast: 172.18.255.255
+Buscando servidores por broadcast en 172.18.255.255:12345...
+-> Servidor encontrado en: 172.18.0.5
+-> Servidor encontrado en: 172.18.0.4
+-> Servidor encontrado en: 172.18.0.3
+
+Probando servicio con el primer servidor (172.18.0.5)...
+Respuesta final: HOLA: 172.18.0.6
+CORRECTO: el cliente descubre exactamente tres servidores
+CORRECTO: el primer servidor devuelve la IP del cliente
+$ bash udp_docker_lanzar_servidores.sh
+CORRECTO: el segundo arranque conserva los tres servidores sin conflictos
+
+BLOQUE VERIFICADO: 11_tres_servidores

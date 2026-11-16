@@ -1,0 +1,32 @@
+debconf: delaying package configuration, since apt-utils is not installed
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23974 files and directories currently installed.)
+Preparing to unpack .../libcap2_1%3a2.66-4+deb12u3+b1_amd64.deb ...
+Unpacking libcap2:amd64 (1:2.66-4+deb12u3+b1) over (1:2.66-4) ...
+Setting up libcap2:amd64 (1:2.66-4+deb12u3+b1) ...
+Selecting previously unselected package libcap2-bin.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23975 files and directories currently installed.)
+Preparing to unpack .../libcap2-bin_1%3a2.66-4+deb12u3+b1_amd64.deb ...
+Unpacking libcap2-bin (1:2.66-4+deb12u3+b1) ...
+Selecting previously unselected package iputils-ping.
+Preparing to unpack .../iputils-ping_3%3a20221126-1+deb12u1_amd64.deb ...
+Unpacking iputils-ping (3:20221126-1+deb12u1) ...
+Selecting previously unselected package libpam-cap:amd64.
+Preparing to unpack .../libpam-cap_1%3a2.66-4+deb12u3+b1_amd64.deb ...
+Unpacking libpam-cap:amd64 (1:2.66-4+deb12u3+b1) ...
+Setting up libcap2-bin (1:2.66-4+deb12u3+b1) ...
+Setting up libpam-cap:amd64 (1:2.66-4+deb12u3+b1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Setting up iputils-ping (3:20221126-1+deb12u1) ...
+Processing triggers for libc-bin (2.36-9+deb12u1) ...
+PING is13_verificacion_dns (172.18.0.2) 56(84) bytes of data.
+64 bytes from is13_verificacion_dns.pruebas (172.18.0.2): icmp_seq=1 ttl=64 time=0.063 ms
+64 bytes from is13_verificacion_dns.pruebas (172.18.0.2): icmp_seq=2 ttl=64 time=0.064 ms
+
+--- is13_verificacion_dns ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1035ms
+rtt min/avg/max/mdev = 0.063/0.063/0.064/0.000 ms

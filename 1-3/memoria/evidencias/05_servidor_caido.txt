@@ -1,0 +1,14 @@
+INGENIERIA DE SERVICIOS | Practica 1.3 | Ejercicio 4 Servidor ausente
+Usuario: uo293890 | Equipo: is-99
+
+$ /usr/bin/python3 -u udp_cliente4_reintenta.py 127.0.0.1 19995
+Entrada: 'Sin servidor\nFIN\n'
+Mensaje (FIN para salir): Enviando... (Timeout: 0.1s)
+Enviando... (Timeout: 0.2s)
+Enviando... (Timeout: 0.4s)
+Enviando... (Timeout: 0.8s)
+Enviando... (Timeout: 1.6s)
+Puede que el servidor esté caído. Inténtelo más tarde.
+CORRECTO: abandona cuando el siguiente timeout seria 3.2 > 2 segundos
+
+BLOQUE VERIFICADO: 05_servidor_caido

@@ -1,0 +1,5 @@
+Cliente: Windows 10.38.10.146
+Servidor: Ubuntu 10.38.10.40 puerto 19991
+nohup: ignoring input
+Servidor escuchando en el puerto 19991...
+[('10.38.10.146', 61786)] dice: Mensaje real desde Windows

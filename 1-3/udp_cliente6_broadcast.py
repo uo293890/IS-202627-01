@@ -1,13 +1,15 @@
 import socket
+import sys
 
-puerto = 12345
-ip_broadcast = '<broadcast>' # Magia de Python para no tener que calcular la IP de red
+puerto = int(sys.argv[2]) if len(sys.argv) > 2 else 12345
+# Permite indicar la dirección calculada para la subred del ejercicio 7.
+ip_broadcast = sys.argv[1] if len(sys.argv) > 1 else '<broadcast>'
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 # El cliente también necesita activar el modo broadcast para poder enviar a la IP de broadcast
 s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
-print("Buscando servidores en la red local...")
+print(f"Buscando servidores por broadcast en {ip_broadcast}:{puerto}...")
 s.sendto(b"BUSCANDO HOLA", (ip_broadcast, puerto))
 
 servidores = []
@@ -35,8 +37,11 @@ if servidores:
     
     s.settimeout(2.0)
     try:
-        datos, origen = s.recvfrom(1024)
-        print(f"Respuesta final: {datos.decode('utf-8')}")
+        while True:
+            datos, origen = s.recvfrom(1024)
+            if origen == (servidor_elegido, puerto) and datos.startswith(b"HOLA: "):
+                print(f"Respuesta final: {datos.decode('utf-8')}")
+                break
     except socket.timeout:
         print("Error: El servidor no respondió al servicio HOLA.")
 else:

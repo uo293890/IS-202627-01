@@ -14,9 +14,11 @@ while True:
     texto = datos.decode('utf-8')
     secuencia = texto.split(":")[0] # Extraemos el ID/Secuencia
     
-    if secuencia not in paquetes_procesados:
+    # Dos clientes pueden usar el mismo número de secuencia.
+    identificador = (origen, secuencia)
+    if identificador not in paquetes_procesados:
         print(f"Procesando nuevo paquete de {origen}: {texto}")
-        paquetes_procesados.add(secuencia)
+        paquetes_procesados.add(identificador)
     else:
         print(f"Ignorando duplicado de {origen}: {texto}")
         

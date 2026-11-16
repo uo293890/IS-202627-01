@@ -1,0 +1,23 @@
+INGENIERIA DE SERVICIOS | Practica 1.3 | Ejercicio 2 Perdidas y numeracion
+Usuario: uo293890 | Equipo: is-99
+
+Servidor: udp_servidor2_simula_perdidas.py puerto 19992; random.seed(1)
+$ /usr/bin/python3 -u udp_cliente2_numera_mensajes.py 127.0.0.1 19992
+Entrada: 'dato01\ndato02\ndato03\ndato04\ndato05\ndato06\ndato07\ndato08\ndato09\ndato10\ndato11\ndato12\nFIN\n'
+CORRECTO: se observan perdidas simuladas y mensajes recibidos
+
+Salida del servidor:
+Simulando paquete perdido...
+Simulando paquete perdido...
+Recibido de ('127.0.0.1', 43772): 3: dato03
+Simulando paquete perdido...
+Recibido de ('127.0.0.1', 43772): 5: dato05
+Recibido de ('127.0.0.1', 43772): 6: dato06
+Recibido de ('127.0.0.1', 43772): 7: dato07
+Recibido de ('127.0.0.1', 43772): 8: dato08
+Simulando paquete perdido...
+Simulando paquete perdido...
+Recibido de ('127.0.0.1', 43772): 11: dato11
+Simulando paquete perdido...
+
+BLOQUE VERIFICADO: 02_perdidas

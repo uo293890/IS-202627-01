@@ -1,0 +1,25 @@
+INGENIERIA DE SERVICIOS | Practica 1.3 | Docker UDP en la red bridge
+Usuario: uo293890 | Equipo: is-99
+
+$ docker run -d --name is13_verificacion_udp -v /home/uo293890/repositorio_practicas/1-3:/app:ro python:3.7 python -u /app/udp_servidor3_con_ok.py
+7ecc2c9b757df9227870228c5f57d715076d77000fa60b1bffc69387cd5b7a71
+$ docker inspect is13_verificacion_udp --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+IP del servidor: 172.17.0.2
+$ /usr/bin/python3 -u udp_cliente4_reintenta.py 172.17.0.2 9999
+Entrada: 'Cliente de la VM\nFIN\n'
+Mensaje (FIN para salir): Enviando... (Timeout: 0.1s)
+Enviando... (Timeout: 0.2s)
+Recibida confirmación.
+Mensaje (FIN para salir):
+$ docker run --rm -i -v /home/uo293890/repositorio_practicas/1-3:/app:ro python:3.7 python /app/udp_cliente4_reintenta.py 172.17.0.2 9999
+Entrada: 'Cliente en contenedor\nFIN\n'
+Mensaje (FIN para salir): Enviando... (Timeout: 0.1s)
+Enviando... (Timeout: 0.2s)
+Recibida confirmación.
+Mensaje (FIN para salir):
+$ docker exec is13_verificacion_udp ps -eo pid,args
+    PID COMMAND
+      1 python -u /app/udp_servidor3_con_ok.py
+      7 ps -eo pid,args
+
+BLOQUE VERIFICADO: 09_docker_udp

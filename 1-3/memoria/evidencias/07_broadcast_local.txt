@@ -1,0 +1,18 @@
+INGENIERIA DE SERVICIOS | Practica 1.3 | Ejercicio 6 Broadcast local
+Usuario: uo293890 | Equipo: is-99
+
+Servidor: udp_servidor6_broadcast.py puerto 12345
+$ /usr/bin/python3 udp_cliente6_broadcast.py 127.255.255.255
+Buscando servidores por broadcast en 127.255.255.255:12345...
+-> Servidor encontrado en: 127.0.0.1
+
+Probando servicio con el primer servidor (127.0.0.1)...
+Respuesta final: HOLA: 127.0.0.1
+CORRECTO: descubre el servicio por broadcast local y lo usa por unicast
+
+Salida del servidor:
+Servidor HOLA escuchando en puerto 12345...
+Petición de descubrimiento de 127.0.0.1
+Petición de servicio de 127.0.0.1
+
+BLOQUE VERIFICADO: 07_broadcast_local

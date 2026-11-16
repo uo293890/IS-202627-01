@@ -1,0 +1,16 @@
+INGENIERIA DE SERVICIOS | Practica 1.3 | Docker Red propia y DNS
+Usuario: uo293890 | Equipo: is-99
+
+$ docker run -d --name is13_verificacion_dns --network pruebas -v /home/uo293890/repositorio_practicas/1-3:/app:ro python:3.7 python -u /app/udp_servidor3_con_ok.py
+ab2ce014016a312099aa6e0a49a18629126f1a69b18d1a264d964132eb53f572
+$ docker run --rm --network pruebas python:3.7 python -c 'import socket; print(socket.gethostbyname('"'"'is13_verificacion_dns'"'"'))'
+172.18.0.2
+$ docker run --rm -i --network pruebas -v /home/uo293890/repositorio_practicas/1-3:/app:ro python:3.7 python /app/udp_cliente4_reintenta.py is13_verificacion_dns 9999
+Entrada: 'Servidor por nombre DNS\nFIN\n'
+Mensaje (FIN para salir): Enviando... (Timeout: 0.1s)
+Recibida confirmación.
+Mensaje (FIN para salir):
+$ docker logs is13_verificacion_dns
+Recibido de ('172.18.0.3', 56872): 1: Servidor por nombre DNS
+
+BLOQUE VERIFICADO: 10_docker_dns

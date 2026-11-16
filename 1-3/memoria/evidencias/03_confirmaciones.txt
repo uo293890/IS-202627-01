@@ -1,0 +1,24 @@
+INGENIERIA DE SERVICIOS | Practica 1.3 | Ejercicio 3 Confirmaciones y timeout
+Usuario: uo293890 | Equipo: is-99
+
+Servidor: udp_servidor3_con_ok.py puerto 19993; random.seed(1)
+$ /usr/bin/python3 -u udp_cliente3_espera_ok.py 127.0.0.1 19993
+Entrada: 'dato1\ndato2\ndato3\ndato4\ndato5\ndato6\nFIN\n'
+Mensaje (FIN para salir): ERROR. El datagrama de confirmación no llega.
+Mensaje (FIN para salir): ERROR. El datagrama de confirmación no llega.
+Mensaje (FIN para salir): Recibida confirmación.
+Mensaje (FIN para salir): ERROR. El datagrama de confirmación no llega.
+Mensaje (FIN para salir): Recibida confirmación.
+Mensaje (FIN para salir): Recibida confirmación.
+Mensaje (FIN para salir):
+CORRECTO: el cliente distingue confirmaciones y timeouts
+
+Salida del servidor:
+Simulando paquete perdido...
+Simulando paquete perdido...
+Recibido de ('127.0.0.1', 46455): 3: dato3
+Simulando paquete perdido...
+Recibido de ('127.0.0.1', 46455): 5: dato5
+Recibido de ('127.0.0.1', 46455): 6: dato6
+
+BLOQUE VERIFICADO: 03_confirmaciones

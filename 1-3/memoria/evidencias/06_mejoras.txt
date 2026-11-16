@@ -1,0 +1,23 @@
+INGENIERIA DE SERVICIOS | Practica 1.3 | Ejercicio 5 Identificacion y duplicados
+Usuario: uo293890 | Equipo: is-99
+
+Servidor: udp_servidor5_mejorado.py puerto 19996; random.seed(1)
+$ /usr/bin/python3 -u udp_cliente5_mejorado.py 127.0.0.1 19996
+Entrada: 'Cliente mejorado\nFIN\n'
+Mensaje (FIN para salir): Recibida confirmación del paquete 1.
+Mensaje (FIN para salir):
+Prueba adicional: mismo datagrama dos veces desde el mismo socket.
+CORRECTO: el ACK identifica el paquete 1
+CORRECTO: el ACK identifica el paquete 1
+CORRECTO: el servidor confirma duplicados sin repetir el procesamiento
+CORRECTO: dos clientes distintos pueden utilizar la secuencia 1
+
+Salida del servidor:
+Simulando paquete perdido...
+Simulando paquete perdido...
+Procesando nuevo paquete de ('127.0.0.1', 35176): 1:Cliente mejorado
+Simulando paquete perdido...
+Procesando nuevo paquete de ('127.0.0.1', 39281): 1:Duplicado controlado
+Ignorando duplicado de ('127.0.0.1', 39281): 1:Duplicado controlado
+
+BLOQUE VERIFICADO: 06_mejoras

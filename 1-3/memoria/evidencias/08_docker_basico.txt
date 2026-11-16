@@ -1,0 +1,24 @@
+INGENIERIA DE SERVICIOS | Practica 1.3 | Docker Imagenes y volumenes
+Usuario: uo293890 | Equipo: is-99
+
+$ /usr/bin/python3 prueba.py
+Me estoy ejecutando con Python 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]
+$ docker run --rm python:3.7 python --version
+Python 3.7.17
+$ docker run --rm python:3.7 python prueba.py
+python: can't open file 'prueba.py': [Errno 2] No such file or directory
+CORRECTO: sin volumen el contenedor no ve prueba.py
+$ docker run --rm -v /home/uo293890/repositorio_practicas/1-3:/app:ro python:3.7 python /app/prueba.py
+Me estoy ejecutando con Python 3.7.17 (default, Sep 20 2023, 11:53:41) 
+[GCC 12.2.0]
+$ docker run --rm -v /home/uo293890/repositorio_practicas/1-3:/app:ro python:3.6 python /app/prueba.py
+Me estoy ejecutando con Python 3.6.15 (default, Dec 21 2021, 12:03:22) 
+[GCC 10.2.1 20210110]
+$ docker run --rm python:3.7 bash -c 'command -v python; rm /usr/local/bin/python; python --version'
+/usr/local/bin/python
+bash: line 1: python: command not found
+$ docker run --rm python:3.7 python --version
+Python 3.7.17
+CORRECTO: borrar python en un contenedor no modifica la imagen.
+
+BLOQUE VERIFICADO: 08_docker_basico

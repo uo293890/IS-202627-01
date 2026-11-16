@@ -18,6 +18,7 @@ while True:
         respuesta, origen = s.recvfrom(1024)
         if respuesta.decode('utf-8') == "OK":
             print("Recibida confirmación.")
-            secuencia += 1 # Solo avanzamos si llega el OK
     except socket.timeout:
         print("ERROR. El datagrama de confirmación no llega.")
+    # Cada mensaje nuevo tiene su número, aunque el anterior se haya perdido.
+    secuencia += 1

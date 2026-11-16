@@ -1,16 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-# 1. Creamos la red (el || true evita que de error si ya existe)
-docker network create pruebas 2>/dev/null || true
+carpeta=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+imagen=${IMAGEN_PYTHON:-python:3.7}
 
-# 2. Lanzamos 3 contenedores en segundo plano (-d)
-for i in {1..3}; do
-    echo "Lanzando servidor $i..."
-    docker run -d \
-        --name server_hola_$i \
-        --network pruebas \
-        -v $(pwd):/app \
-        python:3.7 python /app/udp_servidor6_broadcast.py
+if ! docker network inspect pruebas >/dev/null 2>&1; then
+    docker network create pruebas
+fi
+
+for i in 1 2 3; do
+    nombre="server_hola_$i"
+    if docker container inspect "$nombre" >/dev/null 2>&1; then
+        docker start "$nombre" >/dev/null
+    else
+        docker run -d --name "$nombre" --network pruebas \
+            -v "$carpeta:/app:ro" "$imagen" \
+            python -u /app/udp_servidor6_broadcast.py >/dev/null
+    fi
+    echo "Servidor disponible: $nombre"
 done
-
-echo "¡Servidores en ejecución! Usa 'docker ps' para comprobarlo."
+docker ps --filter 'name=server_hola_' --format '{{.Names}} | {{.Status}}'

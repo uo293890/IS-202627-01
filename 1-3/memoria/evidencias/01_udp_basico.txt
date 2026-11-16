@@ -1,0 +1,21 @@
+INGENIERIA DE SERVICIOS | Practica 1.3 | Ejercicio 1 UDP basico
+Usuario: uo293890 | Equipo: is-99
+
+Servidor: udp_servidor1.py puerto 9999
+$ /usr/bin/python3 udp_cliente1.py
+Entrada: 'Hola por UDP\nEspana y niñez\nFIN\n'
+Mensaje (escribe FIN para salir): Mensaje (escribe FIN para salir): Mensaje (escribe FIN para salir):
+
+Salida del servidor:
+Servidor escuchando en el puerto 9999...
+[('127.0.0.1', 59390)] dice: Hola por UDP
+[('127.0.0.1', 59390)] dice: Espana y niñez
+
+Prueba adicional Windows -> VM (puerto 19991):
+Cliente: Windows 10.38.10.146
+Servidor: Ubuntu 10.38.10.40 puerto 19991
+nohup: ignoring input
+Servidor escuchando en el puerto 19991...
+[('10.38.10.146', 61786)] dice: Mensaje real desde Windows
+
+BLOQUE VERIFICADO: 01_udp_basico

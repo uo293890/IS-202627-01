@@ -1,0 +1,53 @@
+{
+  "fecha": "2026-11-16T14:37:12.494448+00:00",
+  "bloques": {
+    "00_entorno": {
+      "resultado": "correcto",
+      "registro": "00_entorno.txt"
+    },
+    "01_udp_basico": {
+      "resultado": "correcto",
+      "registro": "01_udp_basico.txt"
+    },
+    "02_perdidas": {
+      "resultado": "correcto",
+      "registro": "02_perdidas.txt"
+    },
+    "03_confirmaciones": {
+      "resultado": "correcto",
+      "registro": "03_confirmaciones.txt"
+    },
+    "04_reintentos": {
+      "resultado": "correcto",
+      "registro": "04_reintentos.txt"
+    },
+    "05_servidor_caido": {
+      "resultado": "correcto",
+      "registro": "05_servidor_caido.txt"
+    },
+    "06_mejoras": {
+      "resultado": "correcto",
+      "registro": "06_mejoras.txt"
+    },
+    "07_broadcast_local": {
+      "resultado": "correcto",
+      "registro": "07_broadcast_local.txt"
+    },
+    "08_docker_basico": {
+      "resultado": "correcto",
+      "registro": "08_docker_basico.txt"
+    },
+    "09_docker_udp": {
+      "resultado": "correcto",
+      "registro": "09_docker_udp.txt"
+    },
+    "10_docker_dns": {
+      "resultado": "correcto",
+      "registro": "10_docker_dns.txt"
+    },
+    "11_tres_servidores": {
+      "resultado": "correcto",
+      "registro": "11_tres_servidores.txt"
+    }
+  }
+}

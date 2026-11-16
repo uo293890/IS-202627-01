@@ -31,3 +31,7 @@ while True:
             if timeout > 2.0:
                 print("Servidor no responde. Abortando.")
                 sys.exit(1)
+        except ConnectionRefusedError:
+            # UDP conectado puede recibir un error ICMP de puerto inalcanzable.
+            print("Servidor no disponible: puerto UDP inalcanzable.")
+            sys.exit(1)

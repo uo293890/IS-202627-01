@@ -5,3 +5,13 @@
 # Caché de Python
 **/__pycache__/
 **/*.pyc
+
+# Entornos y datos locales de las practicas
+**/.venv/
+**/venv/
+**/flaskenv/
+**/basedatos*/
+**/*.sqlite
+**/*.sqlite3
+.env
+**/.env

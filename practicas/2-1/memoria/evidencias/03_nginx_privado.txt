@@ -1,0 +1,24 @@
+INGENIERIA DE SERVICIOS | Practica 2.1 | Nginx en una red privada
+
+CORRECTO: nombre disponible: is21_nginx_inicial
+$ docker run -d --rm --name is21_nginx_inicial --network pruebas nginx
+84ecddd241b3bd85c4045fc67a505538dfb5435a1a236c7957df8e56de16e2a6
+$ docker inspect is21_nginx_inicial --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+IP privada de nginx: 172.18.0.2
+CORRECTO: estado HTTP 200
+CORRECTO: se recibe la pagina incluida en la imagen
+CORRECTO: estado HTTP 200
+Guardado html/50x.html desde la imagen de nginx.
+$ docker exec is21_nginx_inicial nginx -T
+listen       80;
+listen  [::]:80;
+root   /usr/share/nginx/html;
+root   /usr/share/nginx/html;
+#    root           html;
+$ docker exec is21_nginx_inicial nginx -v
+nginx version: nginx/1.31.6
+CORRECTO: no hay un servicio publicado en localhost:80
+$ docker stop -t 2 is21_nginx_inicial
+is21_nginx_inicial
+
+BLOQUE VERIFICADO: 03_nginx_privado

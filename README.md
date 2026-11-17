@@ -8,7 +8,7 @@ Repositorio de prácticas de laboratorio de `uo293890`. Cada sesión tiene su c�
 | --- | --- | --- |
 | [1.3](practicas/1-3) | Programación de red con Python y UDP | [Memoria](practicas/1-3/memoria/memoria.md) · [PDF](practicas/1-3/memoria/memoria.pdf) |
 | [1.4](practicas/1-4) | Programación de red con Python y TCP | [Memoria](practicas/1-4/memoria/memoria.md) · [PDF](practicas/1-4/memoria/memoria.pdf) |
-| [2.1](practicas/2-1) | Nginx, Flask, Gunicorn y MariaDB | En preparación |
+| [2.1](practicas/2-1) | Nginx, Flask, Gunicorn y MariaDB | [Memoria](practicas/2-1/memoria/memoria.md) · [PDF](practicas/2-1/memoria/memoria.pdf) |
 | [2.2](practicas/2-2) | Aplicación web de amigos | Pendiente de documentar |
 | [2.3](practicas/2-3) | Aplicación de amigos y monitorización | Pendiente de documentar |
 | [3](practicas/3) | FTP, SFTP, SSH y Telnet | Pendiente de documentar |

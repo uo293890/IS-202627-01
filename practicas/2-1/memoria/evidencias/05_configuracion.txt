@@ -1,0 +1,18 @@
+INGENIERIA DE SERVICIOS | Practica 2.1 | Configuracion opcional de Nginx
+
+$ docker exec servidor_nginx nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+$ docker exec servidor_nginx nginx -T
+keepalive_timeout  10;
+server_tokens off;
+client_max_body_size  4096k;
+client_header_timeout 10;
+client_body_timeout   10;
+send_timeout          10;
+CORRECTO: estado HTTP 404
+CORRECTO: la cabecera Server no incluye la version
+Solicitud con Content-Length mayor de 4096k -> 413
+CORRECTO: se rechaza un cuerpo que supera el limite configurado
+
+BLOQUE VERIFICADO: 05_configuracion

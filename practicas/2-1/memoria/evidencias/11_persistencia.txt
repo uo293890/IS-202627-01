@@ -1,0 +1,21 @@
+INGENIERIA DE SERVICIOS | Practica 2.1 | Persistencia tras recrear MariaDB
+
+CORRECTO: nombre disponible: is21_mariadb_persistente
+$ docker run -d --rm --name is21_mariadb_persistente --network pruebas -e MARIADB_ROOT_PASSWORD=claveroot --network-alias mariadb -v /home/uo293890/repositorio_practicas/practicas/2-1/basedatos_verificacion:/var/lib/mysql mariadb
+a4e5c8b10e171c5ac25cff34eec1c68823ef7e462b691f3eb55a175a4a4e742e
+$ docker run --rm --network pruebas -e MYSQL_PWD=claveroot mariadb mariadb --host is21_mariadb_persistente --user root --batch --skip-column-names --execute 'CREATE DATABASE IF NOT EXISTS practica21; USE practica21; CREATE TABLE IF NOT EXISTS evidencia (id INT PRIMARY KEY, texto VARCHAR(80)); INSERT INTO evidencia VALUES (1,'"'"'IS21_20261117_085040'"'"') ON DUPLICATE KEY UPDATE texto=VALUES(texto); SELECT * FROM evidencia;'
+1	IS21_20261117_085040
+$ docker inspect is21_mariadb_persistente --format '{{range .Mounts}}{{.Type}} | {{.Source}} -> {{.Destination}}{{end}}'
+bind | /home/uo293890/repositorio_practicas/practicas/2-1/basedatos_verificacion -> /var/lib/mysql
+$ docker stop -t 2 is21_mariadb_persistente
+is21_mariadb_persistente
+CORRECTO: nombre disponible: is21_mariadb_persistente
+$ docker run -d --rm --name is21_mariadb_persistente --network pruebas -e MARIADB_ROOT_PASSWORD=claveroot --network-alias mariadb -v /home/uo293890/repositorio_practicas/practicas/2-1/basedatos_verificacion:/var/lib/mysql mariadb
+c4296189f84e223c22502b5542ddec157dd76c07b588d652d51ac16d39e2cc34
+$ docker run --rm --network pruebas -e MYSQL_PWD=claveroot mariadb mariadb --host is21_mariadb_persistente --user root --batch --skip-column-names --execute 'SELECT * FROM practica21.evidencia;'
+1	IS21_20261117_085040
+CORRECTO: la fila sigue presente tras eliminar y recrear el contenedor
+$ ls -ld /home/uo293890/repositorio_practicas/practicas/2-1/basedatos_verificacion
+drwxr-xr-x 6 999 root 4096 nov 17 08:50 /home/uo293890/repositorio_practicas/practicas/2-1/basedatos_verificacion
+
+BLOQUE VERIFICADO: 11_persistencia

@@ -1,0 +1,19 @@
+INGENIERIA DE SERVICIOS | Practica 2.1 | Gunicorn con cuatro workers
+
+$ /home/uo293890/flaskenv/bin/gunicorn -b 0.0.0.0:5000 -w 4 hola_flask:app
+CORRECTO: 07_gunicorn permanece en ejecucion
+GET http://127.0.0.1:5000/ -> 200
+Server: gunicorn
+Content-Type: text/html; charset=utf-8
+Content-Length: 31
+Cuerpo: '<i>¡Hola Flask en cursiva!</i>'
+CORRECTO: estado HTTP 200
+$ ps --ppid 15499 -o pid,args
+    PID COMMAND
+  15500 /home/uo293890/flaskenv/bin/python3 /home/uo293890/flaskenv/bin/gunicorn -b 0.0.0.0:5000 -w 4 hola_flask:app
+  15501 /home/uo293890/flaskenv/bin/python3 /home/uo293890/flaskenv/bin/gunicorn -b 0.0.0.0:5000 -w 4 hola_flask:app
+  15503 /home/uo293890/flaskenv/bin/python3 /home/uo293890/flaskenv/bin/gunicorn -b 0.0.0.0:5000 -w 4 hola_flask:app
+  15504 /home/uo293890/flaskenv/bin/python3 /home/uo293890/flaskenv/bin/gunicorn -b 0.0.0.0:5000 -w 4 hola_flask:app
+CORRECTO: el proceso maestro tiene cuatro workers
+
+BLOQUE VERIFICADO: 07_gunicorn

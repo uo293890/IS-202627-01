@@ -1,0 +1,27 @@
+INGENIERIA DE SERVICIOS | Practica 2.1 | MariaDB sin almacenamiento propio
+
+CORRECTO: nombre disponible: is21_mariadb_temporal
+$ docker run -d --rm --name is21_mariadb_temporal --network pruebas -e MARIADB_ROOT_PASSWORD=claveroot mariadb
+fbf8f3d37d9b7d1373e2bf1ce773b0520157bf5f39fbbe7259467903855f2dc5
+$ docker run --rm --network pruebas -e MYSQL_PWD=claveroot mariadb mariadb --host is21_mariadb_temporal --user root --batch --skip-column-names --execute 'SELECT VERSION(); SHOW DATABASES; CREATE DATABASE practica21_temporal;'
+13.0.2-MariaDB-ubu2604
+information_schema
+mysql
+performance_schema
+sys
+$ docker top is21_mariadb_temporal
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+999                 5343                5319                6                   08:49               ?                   00:00:00            mariadbd
+CORRECTO: no hay un servicio publicado en localhost:3306
+$ docker stop -t 2 is21_mariadb_temporal
+is21_mariadb_temporal
+CORRECTO: nombre disponible: is21_mariadb_temporal
+$ docker run -d --rm --name is21_mariadb_temporal --network pruebas -e MARIADB_ROOT_PASSWORD=claveroot mariadb
+1accd2657b516989f79f4a4cb0fbdb1c5462b9cc9d7532b18f822d42f9fb0b27
+$ docker run --rm --network pruebas -e MYSQL_PWD=claveroot mariadb mariadb --host is21_mariadb_temporal --user root --batch --skip-column-names --execute 'SELECT SCHEMA_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME='"'"'practica21_temporal'"'"';'
+
+CORRECTO: la nueva instancia sin bind mount no conserva la base temporal
+$ docker stop -t 2 is21_mariadb_temporal
+is21_mariadb_temporal
+
+BLOQUE VERIFICADO: 10_mariadb_temporal

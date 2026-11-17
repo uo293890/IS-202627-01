@@ -1,0 +1,27 @@
+INGENIERIA DE SERVICIOS | Practica 2.1 | Nginx instalado en Ubuntu
+
+$ nginx -v
+nginx version: nginx/1.24.0 (Ubuntu)
+$ nginx -V
+$ systemctl is-active nginx
+active
+$ ss -ltn '( sport = :80 )'
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+LISTEN 0      511          0.0.0.0:80        0.0.0.0:*          
+LISTEN 0      511             [::]:80           [::]:*
+Configuracion de Ubuntu:
+root /var/www/html;
+GET http://127.0.0.1/ -> 200
+Server: nginx/1.24.0 (Ubuntu)
+Content-Type: text/html
+Content-Length: 678
+Cuerpo: '<!DOCTYPE html>\n<html>\n<head>\n<title>Welcome to nginx!</title>\n<style>\nhtml { color-scheme: light dark; }\nbody { width: 35em; margin: 0 auto;\nfont-family: Tahoma, Verdana, Arial, s'
+CORRECTO: estado HTTP 200
+CORRECTO: el cambio de /var/www/html se ve por HTTP
+Ultimas peticiones del registro:
+10.38.10.146 - - [16/Nov/2026:15:40:27 +0000] "GET /favicon.ico HTTP/1.1" 404 196 "http://10.38.10.40/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
+10.38.10.146 - - [16/Nov/2026:15:45:09 +0000] "GET / HTTP/1.1" 200 454 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
+127.0.0.1 - - [16/Nov/2026:15:48:53 +0000] "GET / HTTP/1.1" 200 678 "-" "IS21-Verificacion"
+Antes del bloque siguiente, restaurar el indice y retirar los paquetes nginx de Ubuntu.
+
+BLOQUE VERIFICADO: 01_nginx_apt

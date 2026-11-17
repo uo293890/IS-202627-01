@@ -1,0 +1,42 @@
+INGENIERIA DE SERVICIOS | Practica 2.1 | Dos sitios y pagina 404
+
+CORRECTO: servidor_nginx no pertenece a otra ejecucion
+$ bash lanzar_nginx.sh
+Lanzando contenedor Nginx con dos sitios web...
+0781d492cf27d3081bd8da63bef602a0b275c54b78231a1819ab2cb46727835d
+¡Listo! Comprueba 'docker ps'.
+Abre tu navegador en http://IP_DE_TU_MAQUINA y en http://IP_DE_TU_MAQUINA:81
+GET http://127.0.0.1:80/ -> 200
+Server: nginx
+Content-Type: text/html
+Content-Length: 41
+Cuerpo: '<h1>Hola, soy el sitio 1 (Puerto 80)</h1>'
+CORRECTO: estado HTTP 200
+CORRECTO: contenido propio del sitio en el puerto 80
+GET http://127.0.0.1:81/ -> 200
+Server: nginx
+Content-Type: text/html
+Content-Length: 41
+Cuerpo: '<h1>Hola, soy el sitio 2 (Puerto 81)</h1>'
+CORRECTO: estado HTTP 200
+CORRECTO: contenido propio del sitio en el puerto 81
+GET http://127.0.0.1/noexisto -> 404
+Server: nginx
+Content-Type: text/html
+Content-Length: 146
+Cuerpo: '<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n'
+CORRECTO: estado HTTP 404
+GET http://127.0.0.1/50x.html -> 200
+Server: nginx
+Content-Type: text/html
+Content-Length: 497
+Cuerpo: '<!DOCTYPE html>\n<html>\n<head>\n<title>Error</title>\n<style>\nhtml { color-scheme: light dark; }\nbody { width: 35em; margin: 0 auto;\nfont-family: Tahoma, Verdana, Arial, sans-serif; }'
+CORRECTO: estado HTTP 200
+$ docker logs servidor_nginx
+Log del contenedor:
+172.18.0.1 - - [16/Nov/2026:15:52:32 +0000] "GET / HTTP/1.1" 200 41 "-" "IS21-Verificacion" "-"
+172.18.0.1 - - [16/Nov/2026:15:52:32 +0000] "GET / HTTP/1.1" 200 41 "-" "IS21-Verificacion" "-"
+172.18.0.1 - - [16/Nov/2026:15:52:32 +0000] "GET /noexisto HTTP/1.1" 404 146 "-" "IS21-Verificacion" "-"
+172.18.0.1 - - [16/Nov/2026:15:52:32 +0000] "GET /50x.html HTTP/1.1" 200 497 "-" "IS21-Verificacion" "-"
+
+BLOQUE VERIFICADO: 04_dos_sitios

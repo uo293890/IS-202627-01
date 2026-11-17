@@ -1,0 +1,5 @@
+# La imagen solo necesita el Dockerfile y el modulo de la aplicacion.
+**
+!Dockerfile
+!hola_flask/
+!hola_flask/hola_flask.py

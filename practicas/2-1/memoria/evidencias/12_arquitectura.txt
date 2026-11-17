@@ -1,0 +1,30 @@
+INGENIERIA DE SERVICIOS | Practica 2.1 | Arquitectura final
+
+$ docker ps --format '{{.Names}} | {{.Image}} | {{.Ports}}'
+is21_mariadb_persistente | mariadb | 3306/tcp
+hola-flask | gunicornflask:1.0 | 5000/tcp
+servidor_nginx | nginx | 0.0.0.0:80-81->80-81/tcp, [::]:80-81->80-81/tcp
+GET http://127.0.0.1/ -> 200
+Server: nginx
+Content-Type: text/html
+Content-Length: 41
+Cuerpo: '<h1>Hola, soy el sitio 1 (Puerto 80)</h1>'
+CORRECTO: estado HTTP 200
+GET http://127.0.0.1:81/ -> 200
+Server: nginx
+Content-Type: text/html
+Content-Length: 41
+Cuerpo: '<h1>Hola, soy el sitio 2 (Puerto 81)</h1>'
+CORRECTO: estado HTTP 200
+GET http://127.0.0.1/hola -> 200
+Server: nginx
+Content-Type: text/html; charset=utf-8
+Content-Length: 31
+Cuerpo: '<i>¡Hola Flask en cursiva!</i>'
+CORRECTO: estado HTTP 200
+$ docker run --rm --network pruebas -e MYSQL_PWD=claveroot mariadb mariadb --host is21_mariadb_persistente --user root --batch --skip-column-names --execute 'SELECT * FROM practica21.evidencia;'
+1	IS21_20261117_085040
+CORRECTO: no hay un servicio publicado en localhost:3306
+Nginx sirve estaticos y actua como proxy; Flask y MariaDB usan la red pruebas.
+
+BLOQUE VERIFICADO: 12_arquitectura

@@ -25,6 +25,8 @@ cd ~/repositorio_practicas/practicas/2-1
 
 Los scripts que usan `$(pwd)` deben ejecutarse desde la carpeta de la práctica correspondiente. Las carpetas `basedatos/` e `instance/` permanecen locales y no deben añadirse al índice de Git. No se eliminan los datos locales al reorganizar las sesiones.
 
+En la VM se han dejado enlaces simbólicos locales desde las rutas anteriores hacia las nuevas carpetas. Se excluyen mediante `.git/info/exclude` y no duplican el contenido del repositorio. Sirven para conservar referencias de servicios y comandos anteriores mientras se utiliza la estructura nueva.
+
 Los archivos `__pycache__`, `.pyc` y las bases SQLite generadas se retiran del seguimiento de versiones. La configuración local que ya necesitaba la aplicación se conserva. La limpieza del índice no reescribe el historial anterior.
 
 ## Memorias y evidencias

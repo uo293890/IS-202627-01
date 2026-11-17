@@ -1,0 +1,18 @@
+[2026-11-16 15:55:47 +0000] [15499] [INFO] Starting gunicorn 26.2.0
+[2026-11-16 15:55:47 +0000] [15499] [INFO] Listening at: http://0.0.0.0:5000 (15499)
+[2026-11-16 15:55:47 +0000] [15499] [INFO] Using worker: sync
+[2026-11-16 15:55:47 +0000] [15500] [INFO] Booting worker with pid: 15500
+[2026-11-16 15:55:47 +0000] [15501] [INFO] Booting worker with pid: 15501
+[2026-11-16 15:55:47 +0000] [15503] [INFO] Booting worker with pid: 15503
+[2026-11-16 15:55:47 +0000] [15504] [INFO] Booting worker with pid: 15504
+[2026-11-16 15:55:47 +0000] [15499] [INFO] Control socket listening at /run/user/1000/gunicorn.ctl
+[2026-11-16 15:56:24 +0000] [15504] [INFO] Worker exiting (pid: 15504)
+[2026-11-16 15:56:24 +0000] [15503] [INFO] Worker exiting (pid: 15503)
+[2026-11-16 15:56:24 +0000] [15501] [INFO] Worker exiting (pid: 15501)
+[2026-11-16 15:56:24 +0000] [15500] [INFO] Worker exiting (pid: 15500)
+[2026-11-16 15:56:24 +0000] [15499] [INFO] Handling signal: term
+[2026-11-16 15:56:25 +0000] [15499] [INFO] Worker (pid:15500) was sent SIGTERM!
+[2026-11-16 15:56:25 +0000] [15499] [INFO] Worker (pid:15501) was sent SIGTERM!
+[2026-11-16 15:56:25 +0000] [15499] [INFO] Worker (pid:15503) was sent SIGTERM!
+[2026-11-16 15:56:25 +0000] [15499] [INFO] Worker (pid:15504) was sent SIGTERM!
+[2026-11-16 15:56:25 +0000] [15499] [INFO] Shutting down: Master

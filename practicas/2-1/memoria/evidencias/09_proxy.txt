@@ -1,0 +1,30 @@
+INGENIERIA DE SERVICIOS | Practica 2.1 | Nginx como proxy inverso
+
+$ docker stop -t 2 is21_flask_publicado
+is21_flask_publicado
+CORRECTO: nombre disponible: hola-flask
+$ docker run -d --rm --name hola-flask --network pruebas gunicornflask:1.0
+8e24b15c52c70c20706c8730511e1ecd1e7bb871eebfe0efff39f261a6eedddf
+CORRECTO: estado HTTP 200
+CORRECTO: /hola devuelve el HTML de Flask
+GET http://127.0.0.1/hola/ -> 200
+Server: nginx
+Content-Type: text/html; charset=utf-8
+Content-Length: 31
+Cuerpo: '<i>¡Hola Flask en cursiva!</i>'
+CORRECTO: estado HTTP 200
+CORRECTO: estado HTTP 404
+GET http://127.0.0.1/hola/mundo -> 404
+Server: nginx
+Content-Type: text/html; charset=utf-8
+Content-Length: 207
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your s'
+CORRECTO: estado HTTP 404
+CORRECTO: se distinguen los 404 de Nginx y de Flask
+CORRECTO: no hay un servicio publicado en localhost:5000
+CORRECTO: no hay un servicio publicado en localhost:5050
+$ docker ps --format '{{.Names}} | {{.Ports}}'
+hola-flask | 5000/tcp
+servidor_nginx | 0.0.0.0:80-81->80-81/tcp, [::]:80-81->80-81/tcp
+
+BLOQUE VERIFICADO: 09_proxy

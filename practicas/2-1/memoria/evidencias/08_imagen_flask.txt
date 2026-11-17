@@ -1,0 +1,28 @@
+INGENIERIA DE SERVICIOS | Practica 2.1 | Construccion y publicacion en 5050
+
+$ docker build -t gunicornflask:1.0 .
+Construccion inicial:
+#10 exporting config sha256:a505e398882d240693f2e27646a3b877e7b7686e4b446fab49e4b234b4f0dbc7 0.0s done
+#10 exporting attestation manifest sha256:a0d4cc9ccf42467e24fb99959ba3f4cfd7751a1c20a144fb680c53a72c437987 0.0s done
+#10 exporting manifest list sha256:dba0c6d3158f57939a8aca502377693e3d04585f0748c7f733c03d822888acee 0.0s done
+#10 naming to docker.io/library/gunicornflask:1.0
+#10 naming to docker.io/library/gunicornflask:1.0 done
+#10 unpacking to docker.io/library/gunicornflask:1.0
+#10 unpacking to docker.io/library/gunicornflask:1.0 0.5s done
+#10 DONE 2.0s
+$ docker build -t gunicornflask:1.0 .
+Segunda construccion: pasos CACHED = 4
+CORRECTO: la segunda construccion reutiliza las capas
+CORRECTO: nombre disponible: is21_flask_publicado
+$ docker run -d --rm --name is21_flask_publicado --network pruebas -p 5050:5000 gunicornflask:1.0
+f8e59c3af7579c302fa8929b1f5b437e87d5bce552e08716e9d55cec9d1430b6
+GET http://127.0.0.1:5050/ -> 200
+Server: gunicorn
+Content-Type: text/html; charset=utf-8
+Content-Length: 31
+Cuerpo: '<i>¡Hola Flask en cursiva!</i>'
+CORRECTO: estado HTTP 200
+$ docker ps --filter name=is21_flask_publicado --format '{{.Names}} | {{.Ports}}'
+is21_flask_publicado | 0.0.0.0:5050->5000/tcp, [::]:5050->5000/tcp
+
+BLOQUE VERIFICADO: 08_imagen_flask

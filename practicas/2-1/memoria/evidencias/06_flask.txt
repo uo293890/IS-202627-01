@@ -1,0 +1,16 @@
+INGENIERIA DE SERVICIOS | Practica 2.1 | Flask en el entorno virtual
+
+$ /home/uo293890/flaskenv/bin/python -c 'import flask; from importlib.metadata import version; print('"'"'Flask'"'"',version('"'"'flask'"'"')); print(flask.__file__)'
+Flask 3.1.3
+/home/uo293890/flaskenv/lib/python3.12/site-packages/flask/__init__.py
+$ /home/uo293890/flaskenv/bin/flask --app hola_flask run --host=0.0.0.0 --port=5000 --no-reload
+CORRECTO: 06_flask_desarrollo permanece en ejecucion
+GET http://127.0.0.1:5000/ -> 200
+Server: Werkzeug/3.1.9 Python/3.12.3
+Content-Type: text/html; charset=utf-8
+Content-Length: 31
+Cuerpo: '<i>¡Hola Flask en cursiva!</i>'
+CORRECTO: estado HTTP 200
+CORRECTO: la respuesta es HTML con cursiva
+
+BLOQUE VERIFICADO: 06_flask

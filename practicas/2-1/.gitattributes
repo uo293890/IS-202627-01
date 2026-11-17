@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.pdf binary
+memoria/evidencias/*.txt -text -whitespace
+memoria/evidencias/*.log -text -whitespace
+memoria/evidencias/*.html -text -whitespace

@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-11-17T08:51:07.157483+00:00",
+  "bloques": {
+    "00_entorno": "correcto",
+    "01_nginx_apt": "correcto",
+    "02_nginx_retirado": "correcto",
+    "03_nginx_privado": "correcto",
+    "04_dos_sitios": "correcto",
+    "05_configuracion": "correcto",
+    "06_flask": "correcto",
+    "07_gunicorn": "correcto",
+    "08_imagen_flask": "correcto",
+    "09_proxy": "correcto",
+    "10_mariadb_temporal": "correcto",
+    "11_persistencia": "correcto",
+    "12_arquitectura": "correcto"
+  }
+}

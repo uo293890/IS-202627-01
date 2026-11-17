@@ -1,0 +1,9 @@
+INGENIERIA DE SERVICIOS | Practica 2.1 | Retirada del servicio de Ubuntu
+
+Estado del paquete nginx: 'un'
+CORRECTO: nginx ya no esta instalado con apt
+CORRECTO: no hay un servicio publicado en localhost:80
+$ ss -ltn '( sport = :80 )'
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+BLOQUE VERIFICADO: 02_nginx_retirado

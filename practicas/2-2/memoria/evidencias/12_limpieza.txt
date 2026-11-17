@@ -1,0 +1,29 @@
+INGENIERIA DE SERVICIOS | Practica 2.2 | 12_limpieza
+
+$ /home/uo293890/flaskenv/bin/python -c 'from lanzar import app
+from app import db
+from app.models import Amigo
+from sqlalchemy import inspect, text, insert, select
+with app.app_context():
+    for amigo in Amigo.query.all(): amigo.device='"'"''"'"'
+    db.session.commit()
+    print([(a.name, a.device) for a in Amigo.query.all()])'
+[('Manolito', ''), ('Luis', ''), ('Javier', '')]
+GET :80/api/devices -> 200; Content-Type: application/json
+Cuerpo: '[]\n'
+CORRECTO: estado HTTP 200
+CORRECTO: sin tokens de prueba para la futura practica Android
+GET :80/html/amigos -> 200; Content-Type: text/html; charset=utf-8
+Cuerpo: '<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Amigos</title>\n    <style>\n      table { border-collapse: collapse; }\n      table, th, td { border: 1px solid black; padding: 5pt; }\n    </style>\n  </head>\n  <body>\n
+CORRECTO: estado HTTP 200
+$ docker ps --format '{{.Names}} | {{.Image}} | {{.Ports}}'
+basedatos | mariadb | 3306/tcp
+nginx | nginx | 0.0.0.0:80->80/tcp, [::]:80->80/tcp
+amigos | amigos:2.0 | 5000/tcp
+$ docker run --rm --network pruebas -e MYSQL_PWD=amigospass mariadb mariadb -h basedatos -u amigosuser amigosdb --batch --skip-column-names --execute 'SELECT id,name,lati,longi,LENGTH(device) FROM amigos; SELECT version_num FROM alembic_version;'
+1	Manolito	0	0	0
+2	Luis	0	0	0
+5	Javier	12	0	0
+a9d678823200
+
+BLOQUE VERIFICADO: 12_limpieza

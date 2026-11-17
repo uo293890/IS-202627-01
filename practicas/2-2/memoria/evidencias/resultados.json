@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-11-17T17:27:00.084908+00:00",
+  "bloques": {
+    "00_entorno": "correcto",
+    "01_base_vacia": "correcto",
+    "02_migracion_inicial": "correcto",
+    "03_migracion_device": "correcto",
+    "04_desarrollo": "correcto",
+    "05_formularios": "correcto",
+    "06_lecturas_api": "correcto",
+    "07_altas_api": "correcto",
+    "08_dispositivos": "correcto",
+    "09_bajas_api": "correcto",
+    "10_contenedores": "correcto",
+    "11_persistencia": "correcto",
+    "12_limpieza": "correcto"
+  }
+}

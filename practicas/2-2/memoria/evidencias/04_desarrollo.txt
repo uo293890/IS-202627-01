@@ -1,0 +1,32 @@
+INGENIERIA DE SERVICIOS | Practica 2.2 | 04_desarrollo
+
+CORRECTO: puerto anfitrion sin publicar: 5000
+$ /home/uo293890/flaskenv/bin/flask --app lanzar run --host=0.0.0.0 --no-reload --no-debugger
+GET :5000/html/amigos -> 200; Content-Type: text/html; charset=utf-8
+Cuerpo: '<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Amigos</title>\n    <style>\n      table { border-collapse: collapse; }\n      table, th, td { border: 1px solid black; padding: 5pt; }\n    </style>\n  </head>\n  <body>\n
+CORRECTO: estado HTTP 200
+GET :5000/api/amigos -> 200; Content-Type: application/json
+Cuerpo: '[{"device":"","id":1,"lati":"0","longi":"0","name":"Manolito"},{"device":"","id":2,"lati":"0","longi":"0","name":"Luis"}]\n'
+CORRECTO: estado HTTP 200
+$ /home/uo293890/flaskenv/bin/python -c 'from lanzar import app
+from app import db
+from app.models import Amigo
+from sqlalchemy import inspect, text, insert, select
+with app.app_context():
+    print('"'"'SELECT 1:'"'"', db.session.execute(text('"'"'SELECT 1'"'"')).scalar()); print(app.url_map)'
+SELECT 1: 1
+Map([<Rule '/static/<filename>' (HEAD, GET, OPTIONS) -> static>,
+ <Rule '/html/amigos' (HEAD, GET, OPTIONS) -> html.tabla_amigos>,
+ <Rule '/html/delete_amigo/<id>' (HEAD, GET, OPTIONS) -> html.delete_amigo>,
+ <Rule '/html/new_amigo/' (HEAD, GET, OPTIONS) -> html.new_amigo>,
+ <Rule '/html/edit_amigo/<id>' (HEAD, GET, OPTIONS) -> html.edit_amigo>,
+ <Rule '/html/save_amigo' (POST, OPTIONS) -> html.save_amigo>,
+ <Rule '/api/amigo/<id>' (HEAD, GET, OPTIONS) -> api.get_amigo>,
+ <Rule '/api/amigo/byName/<name>' (HEAD, GET, OPTIONS) -> api.get_amigo_by_name>,
+ <Rule '/api/amigos' (HEAD, GET, OPTIONS) -> api.list_amigos>,
+ <Rule '/api/devices' (HEAD, GET, OPTIONS) -> api.list_devices>,
+ <Rule '/api/amigo/<id>' (OPTIONS, PUT) -> api.edit_amigo>,
+ <Rule '/api/amigo/<id>' (OPTIONS, DELETE) -> api.delete_amigo>,
+ <Rule '/api/amigos' (POST, OPTIONS) -> api.new_amigo>])
+
+BLOQUE VERIFICADO: 04_desarrollo

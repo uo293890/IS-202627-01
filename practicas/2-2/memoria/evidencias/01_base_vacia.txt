@@ -1,0 +1,11 @@
+INGENIERIA DE SERVICIOS | Practica 2.2 | 01_base_vacia
+
+$ docker inspect basedatos --format '{{range .Mounts}}{{.Source}} -> {{.Destination}}{{end}}'
+/home/uo293890/repositorio_practicas/practicas/2-2/basedatos_verificacion -> /var/lib/mysql
+CORRECTO: basedatos usa exclusivamente basedatos_verificacion
+$ docker run --rm --network pruebas -e MYSQL_PWD=amigospass mariadb mariadb -h basedatos -u amigosuser amigosdb --batch --skip-column-names --execute 'SHOW TABLES;'
+
+CORRECTO: base nueva sin tablas; no se usa ninguna base anterior
+CORRECTO: puerto anfitrion sin publicar: 3306
+
+BLOQUE VERIFICADO: 01_base_vacia

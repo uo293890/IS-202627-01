@@ -1,0 +1,20 @@
+$ docker stop -t 10 nginx amigos basedatos
+nginx
+amigos
+basedatos
+
+$ bash lanza-basedatos.sh
+331817bc16d2a44ce1f6f69aaeee63fec02f9667cc11a6bb4d21bed5a943db34
+
+$ bash lanza-flask.sh
+d0d718ff33b2d78c9937b4d87f0fc10d58bdb25a12f1ff183b614c7da8eeb02a
+
+$ bash lanza-nginx.sh
+2472e82c414bdbce517dfcca39be2354a34c4ea762dda0326daa8f363c82ac4f
+
+HTTP 200; tres amigos conservados; dispositivos vacios; scripts verificados.
+$ docker ps --format {{.Names}} | {{.Image}} | {{.Ports}}
+nginx | nginx | 0.0.0.0:80->80/tcp, [::]:80->80/tcp
+amigos | amigos:2.0 | 5000/tcp
+basedatos | mariadb | 3306/tcp
+

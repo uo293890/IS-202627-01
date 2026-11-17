@@ -1,0 +1,40 @@
+INGENIERIA DE SERVICIOS | Practica 2.2 | 10_contenedores
+
+$ docker build -t amigos:2.0 .
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:fcbbd420399ed6b37a47ac293e2de68dd402363eb8920a73332fd356dab15709 done
+#11 exporting config sha256:0f51e1426c9af8145a93f39b04f664c47df5c986ad159688f08b2a65cbb7457f done
+#11 exporting attestation manifest sha256:64796018ab68a651a4d88156c58f8560bc7562cfcbc4ddbc2dccb0e600c8691e 0.0s done
+#11 exporting manifest list sha256:90189a39fcacf7b2ccd455f66892b3822bbe9bac46dc30c7dd5fed210086cc22 0.0s done
+#11 naming to docker.io/library/amigos:2.0
+#11 naming to docker.io/library/amigos:2.0 done
+#11 unpacking to docker.io/library/amigos:2.0 0.0s done
+#11 DONE 0.1s
+$ docker run --rm --entrypoint python amigos:2.0 -c 'import flask, sqlalchemy; from pathlib import Path; print('"'"'Flask'"'"',flask.__version__); print('"'"'SQLAlchemy'"'"',sqlalchemy.__version__); assert not Path('"'"'/amigos/instance/config.py'"'"').exists(); print('"'"'Imagen sin configuracion local de secretos'"'"')'
+Flask 2.2.5
+SQLAlchemy 2.0.55
+Imagen sin configuracion local de secretos
+$ docker run -d --rm --network pruebas --name amigos -e DEPLOYMENT_MODE=production -e DATABASE_URI=mysql+pymysql://amigosuser:amigospass@basedatos/amigosdb amigos:2.0
+2c8cb15c1988b726f1e11877b5187e474c239e938895b64782f8f4ffe52bb59e
+$ docker run -d --rm --network pruebas --name nginx -p 80:80 -v /home/uo293890/repositorio_practicas/practicas/2-2/sitios_nginx:/etc/nginx/conf.d:ro nginx
+1d669811a59cc6bbbc111ba9300e19de699c7f04866f56ecc43b212a8e3332c4
+GET :80/html/amigos -> 200; Content-Type: text/html; charset=utf-8
+Cuerpo: '<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Amigos</title>\n    <style>\n      table { border-collapse: collapse; }\n      table, th, td { border: 1px solid black; padding: 5pt; }\n    </style>\n  </head>\n  <body>\n
+CORRECTO: estado HTTP 200
+GET :80/api/amigos -> 200; Content-Type: application/json
+Cuerpo: '[{"device":"","id":1,"lati":"0","longi":"0","name":"Manolito"},{"device":"","id":2,"lati":"0","longi":"0","name":"Luis"},{"device":"","id":5,"lati":"12","longi":"0","name":"Javier"}]\n'
+CORRECTO: estado HTTP 200
+CORRECTO: puerto anfitrion sin publicar: 5000
+CORRECTO: puerto anfitrion sin publicar: 3306
+$ docker top amigos
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                5820                5797                3                   17:25               ?                   00:00:00            /usr/local/bin/python /usr/local/bin/gunicorn -b 0.0.0.0:5000 -w 4 lanzar:app
+root                5962                5820                15                  17:25               ?                   00:00:00            /usr/local/bin/python /usr/local/bin/gunicorn -b 0.0.0.0:5000 -w 4 lanzar:app
+root                5963                5820                14                  17:25               ?                   00:00:00            /usr/local/bin/python /usr/local/bin/gunicorn -b 0.0.0.0:5000 -w 4 lanzar:app
+root                5973                5820                14                  17:25               ?                   00:00:00            /usr/local/bin/python /usr/local/bin/gunicorn -b 0.0.0.0:5000 -w 4 lanzar:app
+root                5974                5820                14                  17:25               ?                   00:00:00            /usr/local/bin/python /usr/local/bin/gunicorn -b 0.0.0.0:5000 -w 4 lanzar:app
+
+BLOQUE VERIFICADO: 10_contenedores

@@ -2,6 +2,7 @@ from flask import render_template, redirect, url_for, request, abort
 from . import html
 from .. import db
 from ..models import Amigo
+from ..validacion import validar, guardar
 
 @html.route("/amigos")
 def tabla_amigos():
@@ -27,22 +28,32 @@ def edit_amigo(id):
 @html.route("/save_amigo", methods=["POST"])
 def save_amigo():
     id = request.form.get("id")
+    device = request.form.get("device", "")
+
     if id is None or id == "":
+        validar(request.form, nuevo=True)
         name = request.form.get("name")
-        if not name: abort(422)
+        if not name:
+            abort(422)
         lati = request.form.get("lati", "0")
         longi = request.form.get("longi", "0")
-        amigo = Amigo(name=name, lati=lati, longi=longi)
+        amigo = Amigo(name=name, lati=lati, longi=longi, device=device)
         db.session.add(amigo)
-        db.session.commit()
+        guardar()
     else:
-        amigo = Amigo.query.get_or_404(int(id))
+        try:
+            numero = int(id)
+        except ValueError:
+            abort(422, "El id debe ser un entero")
+        amigo = Amigo.query.get_or_404(numero)
+        validar(request.form, amigo=amigo)
         name = request.form.get("name")
         if name: amigo.name = name
         lati = request.form.get("lati")
         if lati: amigo.lati = lati
-        longi = request.form.get("longi", "0")
+        longi = request.form.get("longi")
         if longi: amigo.longi = longi
-        db.session.commit()
+        amigo.device = device
+        guardar()
     
     return redirect(url_for("html.tabla_amigos"))

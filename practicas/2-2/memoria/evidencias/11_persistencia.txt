@@ -1,0 +1,17 @@
+INGENIERIA DE SERVICIOS | Practica 2.2 | 11_persistencia
+
+GET :80/api/amigos -> 200; Content-Type: application/json
+Cuerpo: '[{"device":"","id":1,"lati":"0","longi":"0","name":"Manolito"},{"device":"","id":2,"lati":"0","longi":"0","name":"Luis"},{"device":"","id":5,"lati":"12","longi":"0","name":"Javier"}]\n'
+CORRECTO: estado HTTP 200
+$ docker stop -t 10 basedatos
+basedatos
+$ docker run -d --rm --name basedatos --network pruebas -e MYSQL_ROOT_PASSWORD=claveroot -e MYSQL_USER=amigosuser -e MYSQL_DATABASE=amigosdb -e MYSQL_PASSWORD=amigospass -v /home/uo293890/repositorio_practicas/practicas/2-2/basedatos_verificacion:/var/lib/mysql mariadb
+7284546d7045c953ccb9ed1ed46b599c210ea6bfe1fb43da6ac052226569e366
+$ docker restart amigos
+amigos
+GET :80/api/amigos -> 200; Content-Type: application/json
+Cuerpo: '[{"device":"","id":1,"lati":"0","longi":"0","name":"Manolito"},{"device":"","id":2,"lati":"0","longi":"0","name":"Luis"},{"device":"","id":5,"lati":"12","longi":"0","name":"Javier"}]\n'
+CORRECTO: estado HTTP 200
+CORRECTO: los amigos sobreviven a recrear MariaDB
+
+BLOQUE VERIFICADO: 11_persistencia

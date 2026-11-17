@@ -1,0 +1,43 @@
+INGENIERIA DE SERVICIOS | Practica 2.2 | 05_formularios
+
+GET :5000/html/new_amigo/ -> 200; Content-Type: text/html; charset=utf-8
+Cuerpo: '<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Amigo - Modificar datos</title>\n  </head>\n  <body>\n  <h1>Amigo - Modificar datos</h1>\n  <form action="/html/save_amigo" method="POST">\n    <input type="hidden" name="i
+CORRECTO: estado HTTP 200
+POST :5000/html/save_amigo -> 302; Content-Type: text/html; charset=utf-8
+Location: /html/amigos
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to the target URL: <a href="/html/amigos">/html/amigos</a>. If not, click the link.\n'
+CORRECTO: estado HTTP 302
+GET :5000/api/amigo/byName/PruebaFormulario -> 200; Content-Type: application/json
+Cuerpo: '{"device":"movil-html","id":4,"lati":"43.36","longi":"-5.85","name":"PruebaFormulario"}\n'
+CORRECTO: estado HTTP 200
+GET :5000/html/edit_amigo/4 -> 200; Content-Type: text/html; charset=utf-8
+Cuerpo: '<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Amigo - Modificar datos</title>\n  </head>\n  <body>\n  <h1>Amigo - Modificar datos</h1>\n  <form action="/html/save_amigo" method="POST">\n    <input type="hidden" name="i
+CORRECTO: estado HTTP 200
+CORRECTO: formulario de edicion precargado
+POST :5000/html/save_amigo -> 302; Content-Type: text/html; charset=utf-8
+Location: /html/amigos
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to the target URL: <a href="/html/amigos">/html/amigos</a>. If not, click the link.\n'
+CORRECTO: estado HTTP 302
+GET :5000/api/amigo/4 -> 200; Content-Type: application/json
+Cuerpo: '{"device":"","id":4,"lati":"43.37","longi":"-5.86","name":"PruebaFormulario"}\n'
+CORRECTO: estado HTTP 200
+CORRECTO: el formulario guarda el dispositivo vacio
+POST :5000/html/save_amigo -> 422; Content-Type: text/html; charset=utf-8
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>422 Unprocessable Entity</title>\n<h1>Unprocessable Entity</h1>\n<p>Ya existe un amigo con ese nombre</p>\n'
+CORRECTO: estado HTTP 422
+POST :5000/html/save_amigo -> 422; Content-Type: text/html; charset=utf-8
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>422 Unprocessable Entity</title>\n<h1>Unprocessable Entity</h1>\n<p>El nombre es obligatorio y admite hasta 32 caracteres</p>\n'
+CORRECTO: estado HTTP 422
+GET :5000/html/edit_amigo/1 -> 200; Content-Type: text/html; charset=utf-8
+Cuerpo: '<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Amigo - Modificar datos</title>\n  </head>\n  <body>\n  <h1>Amigo - Modificar datos</h1>\n  <form action="/html/save_amigo" method="POST">\n    <input type="hidden" name="i
+CORRECTO: estado HTTP 200
+CORRECTO: un dispositivo NULL se muestra como campo vacio
+GET :5000/html/delete_amigo/4 -> 302; Content-Type: text/html; charset=utf-8
+Location: /html/amigos
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to the target URL: <a href="/html/amigos">/html/amigos</a>. If not, click the link.\n'
+CORRECTO: estado HTTP 302
+GET :5000/api/amigo/4 -> 404; Content-Type: text/html; charset=utf-8
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n'
+CORRECTO: estado HTTP 404
+
+BLOQUE VERIFICADO: 05_formularios

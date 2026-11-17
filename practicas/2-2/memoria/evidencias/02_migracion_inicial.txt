@@ -1,0 +1,37 @@
+INGENIERIA DE SERVICIOS | Practica 2.2 | 02_migracion_inicial
+
+$ /home/uo293890/flaskenv/bin/flask --app lanzar db upgrade e753fcc1a838
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> e753fcc1a838, Creación tabla amigos
+$ docker run --rm --network pruebas -e MYSQL_PWD=amigospass mariadb mariadb -h basedatos -u amigosuser amigosdb --batch --skip-column-names --execute 'SHOW TABLES; DESCRIBE amigos; SELECT version_num FROM alembic_version;'
+alembic_version
+amigos
+id	int(11)	NO	PRI	NULL	auto_increment
+name	varchar(32)	YES	UNI	NULL	
+longi	varchar(32)	YES		NULL	
+lati	varchar(32)	YES		NULL	
+e753fcc1a838
+$ /home/uo293890/flaskenv/bin/flask --app lanzar db downgrade base
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.runtime.migration] Running downgrade e753fcc1a838 -> , Creación tabla amigos
+$ docker run --rm --network pruebas -e MYSQL_PWD=amigospass mariadb mariadb -h basedatos -u amigosuser amigosdb --batch --skip-column-names --execute 'SHOW TABLES;'
+alembic_version
+CORRECTO: downgrade de la tabla vacia; sin datos que perder
+$ /home/uo293890/flaskenv/bin/flask --app lanzar db upgrade e753fcc1a838
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> e753fcc1a838, Creación tabla amigos
+$ /home/uo293890/flaskenv/bin/python -c 'from lanzar import app
+from app import db
+from app.models import Amigo
+from sqlalchemy import inspect, text, insert, select
+with app.app_context():
+    db.session.execute(insert(Amigo).values(name='"'"'Manolito'"'"', lati='"'"'0'"'"', longi='"'"'0'"'"'))
+    db.session.execute(insert(Amigo).values(name='"'"'Luis'"'"', lati='"'"'0'"'"', longi='"'"'0'"'"'))
+    db.session.commit()
+    print(db.session.execute(select(Amigo.id, Amigo.name, Amigo.lati, Amigo.longi)).all())'
+[(1, 'Manolito', '0', '0'), (2, 'Luis', '0', '0')]
+
+BLOQUE VERIFICADO: 02_migracion_inicial

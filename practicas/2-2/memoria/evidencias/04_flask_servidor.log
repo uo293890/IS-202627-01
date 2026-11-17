@@ -1,0 +1,404 @@
+ * Serving Flask app 'lanzar'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.38.16.154:5000
+[33mPress CTRL+C to quit[0m
+2026-11-17 17:19:42,943 INFO sqlalchemy.engine.Engine SELECT DATABASE()
+2026-11-17 17:19:42,943 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-11-17 17:19:42,944 INFO sqlalchemy.engine.Engine SELECT @@sql_mode
+2026-11-17 17:19:42,944 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-11-17 17:19:42,944 INFO sqlalchemy.engine.Engine SELECT @@lower_case_table_names
+2026-11-17 17:19:42,944 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-11-17 17:19:42,945 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:19:42,946 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos
+2026-11-17 17:19:42,946 INFO sqlalchemy.engine.Engine [generated in 0.00010s] {}
+2026-11-17 17:19:42,951 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:19:42] "GET /html/amigos HTTP/1.1" 200 -
+2026-11-17 17:19:42,953 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:19:42,953 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos
+2026-11-17 17:19:42,954 INFO sqlalchemy.engine.Engine [cached since 0.00761s ago] {}
+2026-11-17 17:19:42,954 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:19:42] "GET /html/amigos HTTP/1.1" 200 -
+2026-11-17 17:19:42,958 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:19:42,959 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos
+2026-11-17 17:19:42,959 INFO sqlalchemy.engine.Engine [cached since 0.01286s ago] {}
+2026-11-17 17:19:42,960 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:19:42] "GET /api/amigos HTTP/1.1" 200 -
+2026-11-17 17:19:52,637 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:19:52,638 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos
+2026-11-17 17:19:52,639 INFO sqlalchemy.engine.Engine [cached since 9.693s ago] {}
+2026-11-17 17:19:52,640 INFO sqlalchemy.engine.Engine ROLLBACK
+10.38.10.101 - - [17/Nov/2026 17:19:52] "GET /html/amigos HTTP/1.1" 200 -
+10.38.10.101 - - [17/Nov/2026 17:19:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+10.38.10.101 - - [17/Nov/2026 17:20:02] "[32mGET /html/new_amigo HTTP/1.1[0m" 308 -
+10.38.10.101 - - [17/Nov/2026 17:20:02] "GET /html/new_amigo/ HTTP/1.1" 200 -
+2026-11-17 17:20:08,869 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:08,870 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:20:08,870 INFO sqlalchemy.engine.Engine [generated in 0.00012s] {'name_1': 'BertaLaboratorio', 'param_1': 1}
+2026-11-17 17:20:08,872 INFO sqlalchemy.engine.Engine INSERT INTO amigos (name, lati, longi, device) VALUES (%(name)s, %(lati)s, %(longi)s, %(device)s)
+2026-11-17 17:20:08,872 INFO sqlalchemy.engine.Engine [generated in 0.00010s] {'name': 'BertaLaboratorio', 'lati': '43.36', 'longi': '-5.85', 'device': 'dispositivo-navegador'}
+2026-11-17 17:20:08,873 INFO sqlalchemy.engine.Engine COMMIT
+10.38.10.101 - - [17/Nov/2026 17:20:08] "[32mPOST /html/save_amigo HTTP/1.1[0m" 302 -
+2026-11-17 17:20:08,882 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:08,882 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos
+2026-11-17 17:20:08,882 INFO sqlalchemy.engine.Engine [cached since 25.94s ago] {}
+2026-11-17 17:20:08,883 INFO sqlalchemy.engine.Engine ROLLBACK
+10.38.10.101 - - [17/Nov/2026 17:20:08] "GET /html/amigos HTTP/1.1" 200 -
+2026-11-17 17:20:14,435 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:14,436 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:20:14,436 INFO sqlalchemy.engine.Engine [generated in 0.00019s] {'pk_1': 3}
+2026-11-17 17:20:14,438 INFO sqlalchemy.engine.Engine ROLLBACK
+10.38.10.101 - - [17/Nov/2026 17:20:14] "GET /html/edit_amigo/3 HTTP/1.1" 200 -
+2026-11-17 17:20:20,001 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:20,002 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:20:20,002 INFO sqlalchemy.engine.Engine [cached since 5.566s ago] {'pk_1': 3}
+2026-11-17 17:20:20,004 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:20:20,004 INFO sqlalchemy.engine.Engine [cached since 11.13s ago] {'name_1': 'BertaLaboratorio', 'param_1': 1}
+2026-11-17 17:20:20,007 INFO sqlalchemy.engine.Engine UPDATE amigos SET lati=%(lati)s, device=%(device)s WHERE amigos.id = %(amigos_id)s
+2026-11-17 17:20:20,007 INFO sqlalchemy.engine.Engine [generated in 0.00011s] {'lati': '43.37', 'device': '', 'amigos_id': 3}
+2026-11-17 17:20:20,007 INFO sqlalchemy.engine.Engine COMMIT
+10.38.10.101 - - [17/Nov/2026 17:20:20] "[32mPOST /html/save_amigo HTTP/1.1[0m" 302 -
+2026-11-17 17:20:20,017 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:20,018 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos
+2026-11-17 17:20:20,018 INFO sqlalchemy.engine.Engine [cached since 37.07s ago] {}
+2026-11-17 17:20:20,019 INFO sqlalchemy.engine.Engine ROLLBACK
+10.38.10.101 - - [17/Nov/2026 17:20:20] "GET /html/amigos HTTP/1.1" 200 -
+2026-11-17 17:20:24,285 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:24,286 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:20:24,286 INFO sqlalchemy.engine.Engine [cached since 9.85s ago] {'pk_1': 3}
+2026-11-17 17:20:24,287 INFO sqlalchemy.engine.Engine DELETE FROM amigos WHERE amigos.id = %(id)s
+2026-11-17 17:20:24,288 INFO sqlalchemy.engine.Engine [generated in 0.00018s] {'id': 3}
+2026-11-17 17:20:24,289 INFO sqlalchemy.engine.Engine COMMIT
+10.38.10.101 - - [17/Nov/2026 17:20:24] "[32mGET /html/delete_amigo/3 HTTP/1.1[0m" 302 -
+2026-11-17 17:20:24,305 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:24,305 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos
+2026-11-17 17:20:24,305 INFO sqlalchemy.engine.Engine [cached since 41.36s ago] {}
+2026-11-17 17:20:24,306 INFO sqlalchemy.engine.Engine ROLLBACK
+10.38.10.101 - - [17/Nov/2026 17:20:24] "GET /html/amigos HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 17:20:55] "GET /html/new_amigo/ HTTP/1.1" 200 -
+2026-11-17 17:20:55,761 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:55,761 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:20:55,761 INFO sqlalchemy.engine.Engine [cached since 46.89s ago] {'name_1': 'PruebaFormulario', 'param_1': 1}
+2026-11-17 17:20:55,762 INFO sqlalchemy.engine.Engine INSERT INTO amigos (name, lati, longi, device) VALUES (%(name)s, %(lati)s, %(longi)s, %(device)s)
+2026-11-17 17:20:55,762 INFO sqlalchemy.engine.Engine [cached since 46.89s ago] {'name': 'PruebaFormulario', 'lati': '43.36', 'longi': '-5.85', 'device': 'movil-html'}
+2026-11-17 17:20:55,763 INFO sqlalchemy.engine.Engine COMMIT
+127.0.0.1 - - [17/Nov/2026 17:20:55] "[32mPOST /html/save_amigo HTTP/1.1[0m" 302 -
+2026-11-17 17:20:55,773 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:55,773 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:20:55,773 INFO sqlalchemy.engine.Engine [cached since 46.9s ago] {'name_1': 'PruebaFormulario', 'param_1': 1}
+2026-11-17 17:20:55,777 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:20:55] "GET /api/amigo/byName/PruebaFormulario HTTP/1.1" 200 -
+2026-11-17 17:20:55,784 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:55,784 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:20:55,784 INFO sqlalchemy.engine.Engine [cached since 41.35s ago] {'pk_1': 4}
+2026-11-17 17:20:55,786 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:20:55] "GET /html/edit_amigo/4 HTTP/1.1" 200 -
+2026-11-17 17:20:55,793 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:55,793 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:20:55,793 INFO sqlalchemy.engine.Engine [cached since 41.36s ago] {'pk_1': 4}
+2026-11-17 17:20:55,794 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:20:55,794 INFO sqlalchemy.engine.Engine [cached since 46.92s ago] {'name_1': 'PruebaFormulario', 'param_1': 1}
+2026-11-17 17:20:55,796 INFO sqlalchemy.engine.Engine UPDATE amigos SET lati=%(lati)s, longi=%(longi)s, device=%(device)s WHERE amigos.id = %(amigos_id)s
+2026-11-17 17:20:55,796 INFO sqlalchemy.engine.Engine [generated in 0.00009s] {'lati': '43.37', 'longi': '-5.86', 'device': '', 'amigos_id': 4}
+2026-11-17 17:20:55,798 INFO sqlalchemy.engine.Engine COMMIT
+127.0.0.1 - - [17/Nov/2026 17:20:55] "[32mPOST /html/save_amigo HTTP/1.1[0m" 302 -
+2026-11-17 17:20:55,804 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:55,805 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:20:55,805 INFO sqlalchemy.engine.Engine [cached since 41.37s ago] {'pk_1': 4}
+2026-11-17 17:20:55,806 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:20:55] "GET /api/amigo/4 HTTP/1.1" 200 -
+2026-11-17 17:20:55,812 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:55,812 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:20:55,812 INFO sqlalchemy.engine.Engine [cached since 46.94s ago] {'name_1': 'Manolito', 'param_1': 1}
+2026-11-17 17:20:55,814 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:20:55] "[31m[1mPOST /html/save_amigo HTTP/1.1[0m" 422 -
+127.0.0.1 - - [17/Nov/2026 17:20:55] "[31m[1mPOST /html/save_amigo HTTP/1.1[0m" 422 -
+2026-11-17 17:20:55,824 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:55,824 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:20:55,824 INFO sqlalchemy.engine.Engine [cached since 41.39s ago] {'pk_1': 1}
+2026-11-17 17:20:55,828 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:20:55] "GET /html/edit_amigo/1 HTTP/1.1" 200 -
+2026-11-17 17:20:55,832 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:55,832 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:20:55,832 INFO sqlalchemy.engine.Engine [cached since 41.4s ago] {'pk_1': 4}
+2026-11-17 17:20:55,835 INFO sqlalchemy.engine.Engine DELETE FROM amigos WHERE amigos.id = %(id)s
+2026-11-17 17:20:55,835 INFO sqlalchemy.engine.Engine [cached since 31.55s ago] {'id': 4}
+2026-11-17 17:20:55,838 INFO sqlalchemy.engine.Engine COMMIT
+127.0.0.1 - - [17/Nov/2026 17:20:55] "[32mGET /html/delete_amigo/4 HTTP/1.1[0m" 302 -
+2026-11-17 17:20:55,846 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:20:55,846 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:20:55,846 INFO sqlalchemy.engine.Engine [cached since 41.41s ago] {'pk_1': 4}
+2026-11-17 17:20:55,848 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:20:55] "[33mGET /api/amigo/4 HTTP/1.1[0m" 404 -
+2026-11-17 17:21:29,016 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:21:29,017 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos
+2026-11-17 17:21:29,017 INFO sqlalchemy.engine.Engine [cached since 106.1s ago] {}
+2026-11-17 17:21:29,018 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:21:29] "GET /api/amigos HTTP/1.1" 200 -
+2026-11-17 17:21:29,021 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:21:29,022 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:21:29,022 INFO sqlalchemy.engine.Engine [cached since 74.59s ago] {'pk_1': 1}
+2026-11-17 17:21:29,023 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:21:29] "GET /api/amigo/1 HTTP/1.1" 200 -
+2026-11-17 17:21:29,027 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:21:29,028 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:21:29,028 INFO sqlalchemy.engine.Engine [cached since 80.16s ago] {'name_1': 'manolito', 'param_1': 1}
+2026-11-17 17:21:29,029 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:21:29] "GET /api/amigo/byName/manolito HTTP/1.1" 200 -
+2026-11-17 17:21:29,032 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:21:29,033 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:21:29,033 INFO sqlalchemy.engine.Engine [cached since 74.6s ago] {'pk_1': 999999}
+2026-11-17 17:21:29,035 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:21:29] "[33mGET /api/amigo/999999 HTTP/1.1[0m" 404 -
+2026-11-17 17:21:29,040 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:21:29,041 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:21:29,041 INFO sqlalchemy.engine.Engine [cached since 80.17s ago] {'name_1': 'NoExisteIS22', 'param_1': 1}
+2026-11-17 17:21:29,042 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:21:29] "[33mGET /api/amigo/byName/NoExisteIS22 HTTP/1.1[0m" 404 -
+2026-11-17 17:21:29,476 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:21:29,476 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:21:29,476 INFO sqlalchemy.engine.Engine [cached since 75.04s ago] {'pk_1': 1}
+2026-11-17 17:21:29,477 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:21:29] "GET /api/amigo/1 HTTP/1.1" 200 -
+2026-11-17 17:21:57,514 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:21:57,515 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:21:57,515 INFO sqlalchemy.engine.Engine [cached since 108.6s ago] {'name_1': 'Javier', 'param_1': 1}
+2026-11-17 17:21:57,516 INFO sqlalchemy.engine.Engine INSERT INTO amigos (name, lati, longi, device) VALUES (%(name)s, %(lati)s, %(longi)s, %(device)s)
+2026-11-17 17:21:57,517 INFO sqlalchemy.engine.Engine [cached since 108.6s ago] {'name': 'Javier', 'lati': '0', 'longi': '0', 'device': None}
+2026-11-17 17:21:57,517 INFO sqlalchemy.engine.Engine COMMIT
+2026-11-17 17:21:57,524 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:21:57,524 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:21:57,524 INFO sqlalchemy.engine.Engine [generated in 0.00014s] {'pk_1': 5}
+2026-11-17 17:21:57,525 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:21:57] "POST /api/amigos HTTP/1.1" 200 -
+2026-11-17 17:21:57,529 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:21:57,530 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:21:57,530 INFO sqlalchemy.engine.Engine [cached since 108.7s ago] {'name_1': 'Javier', 'param_1': 1}
+2026-11-17 17:21:57,532 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:21:57] "[31m[1mPOST /api/amigos HTTP/1.1[0m" 422 -
+127.0.0.1 - - [17/Nov/2026 17:21:57] "[31m[1mPOST /api/amigos HTTP/1.1[0m" 422 -
+127.0.0.1 - - [17/Nov/2026 17:21:57] "[31m[1mPOST /api/amigos HTTP/1.1[0m" 422 -
+127.0.0.1 - - [17/Nov/2026 17:21:57] "[31m[1mPOST /api/amigos HTTP/1.1[0m" 422 -
+127.0.0.1 - - [17/Nov/2026 17:21:57] "[31m[1mPOST /api/amigos HTTP/1.1[0m" 422 -
+127.0.0.1 - - [17/Nov/2026 17:21:57] "[31m[1mPOST /api/amigos HTTP/1.1[0m" 422 -
+2026-11-17 17:21:57,565 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:21:57,565 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:21:57,565 INFO sqlalchemy.engine.Engine [cached since 108.7s ago] {'name_1': 'TrasErrores', 'param_1': 1}
+2026-11-17 17:21:57,569 INFO sqlalchemy.engine.Engine INSERT INTO amigos (name, lati, longi, device) VALUES (%(name)s, %(lati)s, %(longi)s, %(device)s)
+2026-11-17 17:21:57,569 INFO sqlalchemy.engine.Engine [cached since 108.7s ago] {'name': 'TrasErrores', 'lati': '1', 'longi': '2', 'device': None}
+2026-11-17 17:21:57,571 INFO sqlalchemy.engine.Engine COMMIT
+2026-11-17 17:21:57,574 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:21:57,574 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:21:57,575 INFO sqlalchemy.engine.Engine [cached since 0.05029s ago] {'pk_1': 6}
+2026-11-17 17:21:57,575 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:21:57] "POST /api/amigos HTTP/1.1" 200 -
+2026-11-17 17:22:36,814 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:22:36,815 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:22:36,815 INFO sqlalchemy.engine.Engine [cached since 147.9s ago] {'name_1': 'Javier', 'param_1': 1}
+2026-11-17 17:22:36,816 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:22:36] "GET /api/amigo/byName/Javier HTTP/1.1" 200 -
+2026-11-17 17:22:36,820 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:22:36,820 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:22:36,821 INFO sqlalchemy.engine.Engine [cached since 142.4s ago] {'pk_1': 5}
+2026-11-17 17:22:36,821 INFO sqlalchemy.engine.Engine UPDATE amigos SET lati=%(lati)s, device=%(device)s WHERE amigos.id = %(amigos_id)s
+2026-11-17 17:22:36,822 INFO sqlalchemy.engine.Engine [cached since 136.8s ago] {'lati': '12', 'device': 'token-is22', 'amigos_id': 5}
+2026-11-17 17:22:36,822 INFO sqlalchemy.engine.Engine COMMIT
+2026-11-17 17:22:36,830 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:22:36,830 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:22:36,830 INFO sqlalchemy.engine.Engine [cached since 39.31s ago] {'pk_1': 5}
+2026-11-17 17:22:36,831 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:22:36] "PUT /api/amigo/5 HTTP/1.1" 200 -
+2026-11-17 17:22:36,835 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:22:36,836 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.device IS NOT NULL AND amigos.device != %(device_1)s
+2026-11-17 17:22:36,836 INFO sqlalchemy.engine.Engine [generated in 0.00015s] {'device_1': ''}
+2026-11-17 17:22:36,838 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:22:36] "GET /api/devices HTTP/1.1" 200 -
+2026-11-17 17:22:36,847 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:22:36,847 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:22:36,847 INFO sqlalchemy.engine.Engine [cached since 142.4s ago] {'pk_1': 5}
+2026-11-17 17:22:36,849 INFO sqlalchemy.engine.Engine UPDATE amigos SET device=%(device)s WHERE amigos.id = %(amigos_id)s
+2026-11-17 17:22:36,849 INFO sqlalchemy.engine.Engine [generated in 0.00010s] {'device': 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX ... (3798 characters truncated) ... XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', 'amigos_id': 5}
+2026-11-17 17:22:36,849 INFO sqlalchemy.engine.Engine COMMIT
+2026-11-17 17:22:36,855 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:22:36,855 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:22:36,855 INFO sqlalchemy.engine.Engine [cached since 39.33s ago] {'pk_1': 5}
+2026-11-17 17:22:36,856 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:22:36] "PUT /api/amigo/5 HTTP/1.1" 200 -
+2026-11-17 17:22:36,862 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:22:36,863 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:22:36,863 INFO sqlalchemy.engine.Engine [cached since 142.4s ago] {'pk_1': 5}
+2026-11-17 17:22:36,864 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:22:36] "[31m[1mPUT /api/amigo/5 HTTP/1.1[0m" 422 -
+2026-11-17 17:22:36,872 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:22:36,873 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:22:36,873 INFO sqlalchemy.engine.Engine [cached since 142.4s ago] {'pk_1': 5}
+2026-11-17 17:22:36,875 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:22:36,875 INFO sqlalchemy.engine.Engine [cached since 148s ago] {'name_1': 'Manolito', 'param_1': 1}
+2026-11-17 17:22:36,876 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:22:36] "[31m[1mPUT /api/amigo/5 HTTP/1.1[0m" 422 -
+2026-11-17 17:22:36,881 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:22:36,881 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:22:36,881 INFO sqlalchemy.engine.Engine [cached since 142.4s ago] {'pk_1': 5}
+2026-11-17 17:22:36,887 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:22:36] "[31m[1mPUT /api/amigo/5 HTTP/1.1[0m" 422 -
+2026-11-17 17:22:36,891 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:22:36,891 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:22:36,891 INFO sqlalchemy.engine.Engine [cached since 142.5s ago] {'pk_1': 5}
+2026-11-17 17:22:36,895 INFO sqlalchemy.engine.Engine UPDATE amigos SET device=%(device)s WHERE amigos.id = %(amigos_id)s
+2026-11-17 17:22:36,895 INFO sqlalchemy.engine.Engine [cached since 0.04622s ago] {'device': '', 'amigos_id': 5}
+2026-11-17 17:22:36,896 INFO sqlalchemy.engine.Engine COMMIT
+2026-11-17 17:22:36,900 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:22:36,900 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:22:36,900 INFO sqlalchemy.engine.Engine [cached since 39.38s ago] {'pk_1': 5}
+2026-11-17 17:22:36,901 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:22:36] "PUT /api/amigo/5 HTTP/1.1" 200 -
+2026-11-17 17:22:36,905 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:22:36,906 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.device IS NOT NULL AND amigos.device != %(device_1)s
+2026-11-17 17:22:36,907 INFO sqlalchemy.engine.Engine [cached since 0.07056s ago] {'device_1': ''}
+2026-11-17 17:22:36,908 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:22:36] "GET /api/devices HTTP/1.1" 200 -
+2026-11-17 17:22:36,915 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:22:36,915 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:22:36,915 INFO sqlalchemy.engine.Engine [cached since 142.5s ago] {'pk_1': 5}
+2026-11-17 17:22:36,917 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:22:36] "[31m[1mPUT /api/amigo/5 HTTP/1.1[0m" 422 -
+2026-11-17 17:23:00,800 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:23:00,800 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:23:00,800 INFO sqlalchemy.engine.Engine [cached since 166.4s ago] {'pk_1': 1}
+2026-11-17 17:23:00,801 INFO sqlalchemy.engine.Engine ROLLBACK
+10.38.10.101 - - [17/Nov/2026 17:23:00] "GET /api/amigo/1 HTTP/1.1" 200 -
+2026-11-17 17:23:16,347 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:23:16,348 INFO sqlalchemy.engine.Engine SELECT amigos.id AS amigos_id, amigos.name AS amigos_name, amigos.lati AS amigos_lati, amigos.longi AS amigos_longi, amigos.device AS amigos_device 
+FROM amigos 
+WHERE amigos.name = %(name_1)s 
+ LIMIT %(param_1)s
+2026-11-17 17:23:16,348 INFO sqlalchemy.engine.Engine [cached since 187.5s ago] {'name_1': 'TrasErrores', 'param_1': 1}
+2026-11-17 17:23:16,349 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:23:16] "GET /api/amigo/byName/TrasErrores HTTP/1.1" 200 -
+2026-11-17 17:23:16,353 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:23:16,353 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:23:16,353 INFO sqlalchemy.engine.Engine [cached since 181.9s ago] {'pk_1': 6}
+2026-11-17 17:23:16,355 INFO sqlalchemy.engine.Engine DELETE FROM amigos WHERE amigos.id = %(id)s
+2026-11-17 17:23:16,355 INFO sqlalchemy.engine.Engine [cached since 172.1s ago] {'id': 6}
+2026-11-17 17:23:16,357 INFO sqlalchemy.engine.Engine COMMIT
+127.0.0.1 - - [17/Nov/2026 17:23:16] "[35m[1mDELETE /api/amigo/6 HTTP/1.1[0m" 204 -
+2026-11-17 17:23:16,375 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:23:16,375 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:23:16,377 INFO sqlalchemy.engine.Engine [cached since 181.9s ago] {'pk_1': 6}
+2026-11-17 17:23:16,379 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:23:16] "[33mDELETE /api/amigo/6 HTTP/1.1[0m" 404 -
+2026-11-17 17:23:16,383 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-17 17:23:16,383 INFO sqlalchemy.engine.Engine SELECT amigos.id, amigos.name, amigos.lati, amigos.longi, amigos.device 
+FROM amigos 
+WHERE amigos.id = %(pk_1)s
+2026-11-17 17:23:16,383 INFO sqlalchemy.engine.Engine [cached since 181.9s ago] {'pk_1': 999999}
+2026-11-17 17:23:16,387 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [17/Nov/2026 17:23:16] "[33mPUT /api/amigo/999999 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [17/Nov/2026 17:23:16] "[31m[1mPATCH /api/amigos HTTP/1.1[0m" 405 -

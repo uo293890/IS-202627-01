@@ -1,0 +1,69 @@
+$ docker build -t amigos:1.0 .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 296B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/python:3.7
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 85B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/python:3.7@sha256:eedf63967cdb57d8214db38ce21f105003ed4e4d0358f02bedc057341bcf92a0
+#4 resolve docker.io/library/python:3.7@sha256:eedf63967cdb57d8214db38ce21f105003ed4e4d0358f02bedc057341bcf92a0 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 14.67kB done
+#5 DONE 0.1s
+
+#6 [2/6] RUN pip install flask && pip install gunicorn
+#6 CACHED
+
+#7 [3/6] RUN pip install flask-sqlalchemy pymysql flask-migrate
+#7 CACHED
+
+#8 [4/6] RUN mkdir /amigos
+#8 CACHED
+
+#9 [5/6] COPY . /amigos
+#9 DONE 0.1s
+
+#10 [6/6] WORKDIR /amigos
+#10 DONE 0.1s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.3s done
+#11 exporting manifest sha256:13a23be2b4aea0d737a27d7ef55dfa26d3bddfbb9186c440d13a2070ebd80b34
+#11 exporting manifest sha256:13a23be2b4aea0d737a27d7ef55dfa26d3bddfbb9186c440d13a2070ebd80b34 0.0s done
+#11 exporting config sha256:52b6e36e497c815fc3c4099f1571d5866cd9797f5d63ce1e2479f8d65927fb0d 0.0s done
+#11 exporting attestation manifest sha256:4380c080edcb3917385f91170196458ae644c04d3359f3c53ac88c3444ab9eb4 0.0s done
+#11 exporting manifest list sha256:1546f56c3ea63d00df5e57319c67945a4b92b0f4ed1934dabc7cfadef0caf4ef
+#11 exporting manifest list sha256:1546f56c3ea63d00df5e57319c67945a4b92b0f4ed1934dabc7cfadef0caf4ef 0.0s done
+#11 naming to docker.io/library/amigos:1.0 done
+#11 unpacking to docker.io/library/amigos:1.0 0.1s done
+#11 DONE 0.5s
+
+$ docker run --rm -d --network pruebas --name is22_version1 -e DEPLOYMENT_MODE=production -e DATABASE_URI=mysql+pymysql://amigosuser:amigospass@basedatos/amigosdb amigos:1.0
+299bc95b9f062cd00b6a7032e5d1f9e8a3d67c4fa1f589bef92e122afd799d2a
+
+$ docker exec is22_version1 python -c import urllib.request,json,time
+for i in range(50):
+ try:
+  r=urllib.request.urlopen('http://127.0.0.1:5000/api/amigos');datos=json.load(r);break
+ except Exception:time.sleep(.2)
+else:raise RuntimeError('Servidor no disponible')
+assert len(datos)>=2 and all('device' not in a for a in datos)
+print('GET /api/amigos ->',r.status);print(datos);print('VERSION 1.0 VERIFICADA: interfaz original sin device')
+GET /api/amigos -> 200
+[{'id': 1, 'lati': '0', 'longi': '0', 'name': 'Manolito'}, {'id': 2, 'lati': '0', 'longi': '0', 'name': 'Luis'}, {'id': 5, 'lati': '12', 'longi': '0', 'name': 'Javier'}]
+VERSION 1.0 VERIFICADA: interfaz original sin device
+
+$ docker stop -t 5 is22_version1
+is22_version1
+

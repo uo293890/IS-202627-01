@@ -1,4 +1,6 @@
-cat <<EOF > .dockerignore
-basedatos/
-.git
-EOF
+__pycache__/
+*.pyc
+instance/
+basedatos*/
+.env
+.git/

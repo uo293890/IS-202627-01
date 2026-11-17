@@ -8,11 +8,13 @@
   <form action="/html/save_amigo" method="POST">
     <input type="hidden" name="id" value="{{amigo.id}}"/>
     <label for="name">Nombre</label>
-    <input type="text" name="name" value="{{amigo.name}}"></br>
+    <input type="text" name="name" value="{{amigo.name if amigo else ''}}"></br>
     <label for="longi">Longitud</label>
-    <input type="text" name="longi" value="{{amigo.longi}}"></br>
+    <input type="text" name="longi" value="{{amigo.longi if amigo else ''}}"></br>
     <label for="lati">Latitud</label>
-    <input type="text" name="lati" value="{{amigo.lati}}"></br>
+    <input type="text" name="lati" value="{{amigo.lati if amigo else ''}}"></br>
+    <label for="device">Dispositivo</label>
+    <textarea id="device" name="device" maxlength="4096">{{amigo.device or '' if amigo else ''}}</textarea><br>
     <input type="submit" value="Enviar">
   </form>
   </body>

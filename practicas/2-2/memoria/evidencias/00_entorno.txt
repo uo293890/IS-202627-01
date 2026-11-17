@@ -1,0 +1,19 @@
+INGENIERIA DE SERVICIOS | Practica 2.2 | 00_entorno
+
+$ date --iso-8601=seconds
+2026-11-17T17:16:54+00:00
+$ hostname -I
+10.38.16.154 172.18.0.1 172.17.0.1 172.19.0.1
+$ /home/uo293890/flaskenv/bin/python -c 'from importlib.metadata import version
+for p in ['"'"'flask'"'"','"'"'flask-sqlalchemy'"'"','"'"'flask-migrate'"'"','"'"'pymysql'"'"','"'"'httpie'"'"','"'"'gunicorn'"'"']: print(p,version(p))'
+flask 3.1.3
+flask-sqlalchemy 3.1.1
+flask-migrate 4.0.1
+pymysql 1.2.3
+httpie 3.2.4
+gunicorn 26.2.0
+$ docker version --format '{{.Server.Version}}'
+29.8.0
+CORRECTO: almacenamiento de pruebas independiente
+
+BLOQUE VERIFICADO: 00_entorno

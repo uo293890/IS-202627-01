@@ -1,0 +1,43 @@
+INGENIERIA DE SERVICIOS | Practica 2.2 | 08_dispositivos
+
+GET :5000/api/amigo/byName/Javier -> 200; Content-Type: application/json
+Cuerpo: '{"device":"","id":5,"lati":"0","longi":"0","name":"Javier"}\n'
+CORRECTO: estado HTTP 200
+PUT :5000/api/amigo/5 -> 200; Content-Type: application/json
+JSON enviado: {'lati': '12', 'device': 'token-is22'}
+Cuerpo: '{"device":"token-is22","id":5,"lati":"12","longi":"0","name":"Javier"}\n'
+CORRECTO: estado HTTP 200
+GET :5000/api/devices -> 200; Content-Type: application/json
+Cuerpo: '["token-is22"]\n'
+CORRECTO: estado HTTP 200
+CORRECTO: devices excluye NULL y cadenas vacias
+PUT :5000/api/amigo/5 -> 200; Content-Type: application/json
+JSON enviado: {'device': 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Cuerpo: '{"device":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+CORRECTO: estado HTTP 200
+CORRECTO: se guardan y recuperan 4096 caracteres
+PUT :5000/api/amigo/5 -> 422; Content-Type: text/html; charset=utf-8
+JSON enviado: {'device': 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>422 Unprocessable Entity</title>\n<h1>Unprocessable Entity</h1>\n<p>El dispositivo admite hasta 4096 caracteres</p>\n'
+CORRECTO: estado HTTP 422
+PUT :5000/api/amigo/5 -> 422; Content-Type: text/html; charset=utf-8
+JSON enviado: {'name': 'Manolito'}
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>422 Unprocessable Entity</title>\n<h1>Unprocessable Entity</h1>\n<p>Ya existe un amigo con ese nombre</p>\n'
+CORRECTO: estado HTTP 422
+PUT :5000/api/amigo/5 -> 422; Content-Type: text/html; charset=utf-8
+JSON enviado: {'name': ''}
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>422 Unprocessable Entity</title>\n<h1>Unprocessable Entity</h1>\n<p>El nombre es obligatorio y admite hasta 32 caracteres</p>\n'
+CORRECTO: estado HTTP 422
+PUT :5000/api/amigo/5 -> 200; Content-Type: application/json
+JSON enviado: {'device': ''}
+Cuerpo: '{"device":"","id":5,"lati":"12","longi":"0","name":"Javier"}\n'
+CORRECTO: estado HTTP 200
+GET :5000/api/devices -> 200; Content-Type: application/json
+Cuerpo: '[]\n'
+CORRECTO: estado HTTP 200
+CORRECTO: PUT con cadena vacia limpia el dispositivo
+PUT :5000/api/amigo/5 -> 422; Content-Type: text/html; charset=utf-8
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>422 Unprocessable Entity</title>\n<h1>Unprocessable Entity</h1>\n<p>Se requiere un objeto JSON no vacio</p>\n'
+CORRECTO: estado HTTP 422
+
+BLOQUE VERIFICADO: 08_dispositivos

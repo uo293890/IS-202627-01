@@ -1,0 +1,36 @@
+INGENIERIA DE SERVICIOS | Practica 2.2 | 07_altas_api
+
+POST :5000/api/amigos -> 200; Content-Type: application/json
+JSON enviado: {'name': 'Javier'}
+Cuerpo: '{"device":"","id":5,"lati":"0","longi":"0","name":"Javier"}\n'
+CORRECTO: estado HTTP 200
+CORRECTO: valores predeterminados del nuevo amigo
+POST :5000/api/amigos -> 422; Content-Type: text/html; charset=utf-8
+JSON enviado: {'name': 'Javier'}
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>422 Unprocessable Entity</title>\n<h1>Unprocessable Entity</h1>\n<p>Ya existe un amigo con ese nombre</p>\n'
+CORRECTO: estado HTTP 422
+POST :5000/api/amigos -> 422; Content-Type: text/html; charset=utf-8
+JSON enviado: {'lati': '1'}
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>422 Unprocessable Entity</title>\n<h1>Unprocessable Entity</h1>\n<p>El nombre es obligatorio y admite hasta 32 caracteres</p>\n'
+CORRECTO: estado HTTP 422
+POST :5000/api/amigos -> 422; Content-Type: text/html; charset=utf-8
+JSON enviado: {}
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>422 Unprocessable Entity</title>\n<h1>Unprocessable Entity</h1>\n<p>Se requiere un objeto JSON no vacio</p>\n'
+CORRECTO: estado HTTP 422
+POST :5000/api/amigos -> 422; Content-Type: text/html; charset=utf-8
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>422 Unprocessable Entity</title>\n<h1>Unprocessable Entity</h1>\n<p>Se requiere un objeto JSON no vacio</p>\n'
+CORRECTO: estado HTTP 422
+POST :5000/api/amigos -> 422; Content-Type: text/html; charset=utf-8
+JSON enviado: ['no es objeto']
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>422 Unprocessable Entity</title>\n<h1>Unprocessable Entity</h1>\n<p>Se requiere un objeto JSON no vacio</p>\n'
+CORRECTO: estado HTTP 422
+POST :5000/api/amigos -> 422; Content-Type: text/html; charset=utf-8
+JSON enviado: {'name': 'NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN'}
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>422 Unprocessable Entity</title>\n<h1>Unprocessable Entity</h1>\n<p>El nombre es obligatorio y admite hasta 32 caracteres</p>\n'
+CORRECTO: estado HTTP 422
+POST :5000/api/amigos -> 200; Content-Type: application/json
+JSON enviado: {'name': 'TrasErrores', 'lati': '1', 'longi': '2'}
+Cuerpo: '{"device":"","id":6,"lati":"1","longi":"2","name":"TrasErrores"}\n'
+CORRECTO: estado HTTP 200
+
+BLOQUE VERIFICADO: 07_altas_api

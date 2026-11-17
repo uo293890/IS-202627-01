@@ -1,0 +1,22 @@
+INGENIERIA DE SERVICIOS | Practica 2.2 | 06_lecturas_api
+
+GET :5000/api/amigos -> 200; Content-Type: application/json
+Cuerpo: '[{"device":"","id":1,"lati":"0","longi":"0","name":"Manolito"},{"device":"","id":2,"lati":"0","longi":"0","name":"Luis"}]\n'
+CORRECTO: estado HTTP 200
+CORRECTO: lista de dos amigos iniciales
+GET :5000/api/amigo/1 -> 200; Content-Type: application/json
+Cuerpo: '{"device":"","id":1,"lati":"0","longi":"0","name":"Manolito"}\n'
+CORRECTO: estado HTTP 200
+GET :5000/api/amigo/byName/manolito -> 200; Content-Type: application/json
+Cuerpo: '{"device":"","id":1,"lati":"0","longi":"0","name":"Manolito"}\n'
+CORRECTO: estado HTTP 200
+GET :5000/api/amigo/999999 -> 404; Content-Type: text/html; charset=utf-8
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n'
+CORRECTO: estado HTTP 404
+GET :5000/api/amigo/byName/NoExisteIS22 -> 404; Content-Type: text/html; charset=utf-8
+Cuerpo: '<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>No se encuentra ningún amigo con ese nombre</p>\n'
+CORRECTO: estado HTTP 404
+$ /home/uo293890/flaskenv/bin/http --ignore-stdin --pretty=none GET localhost:5000/api/amigo/1
+{"device":"","id":1,"lati":"0","longi":"0","name":"Manolito"}
+
+BLOQUE VERIFICADO: 06_lecturas_api
